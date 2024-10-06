@@ -4,7 +4,7 @@ defineProps<{
   text: string
 }>()
 
-const weLoopin: { title: string; text: string }[] = [
+const weLoopin: {}[] = [
   {
     title: 'yup',
     text: 'first one'
@@ -23,5 +23,6 @@ const weLoopin: { title: string; text: string }[] = [
     :key="obj.title"
     :projectTitle="obj.title"
     :description="obj.text"
-  ></ProjectCard>
+  />
+  <ProjectCard projectTitle="my - proj" description="this is my proj" />
 </template>

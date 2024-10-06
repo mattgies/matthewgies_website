@@ -1,7 +1,7 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
@@ -21,7 +21,13 @@ a,
   }
 }
 
-@media (min-width: 1024px) {
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* @media (min-width: 1024px) {
   body {
     display: flex;
     place-items: center;
@@ -32,4 +38,14 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
+} */
+
+.page-opacity-enter-from,
+.page-opacity-leave-to {
+  opacity: 0;
+}
+
+.page-opacity-enter-active,
+.page-opacity-leave-active {
+  transition: 200ms ease all;
 }
