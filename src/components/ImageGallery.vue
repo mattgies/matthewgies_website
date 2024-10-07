@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import imgSrc from '@/assets/img/DSC00667.jpg'
+import imgVert from '@/assets/img/DSC00631.jpg'
 import PhotoSwipeLightbox from 'photoswipe/lightbox'
 import 'photoswipe/style.css'
 
@@ -7,35 +8,19 @@ const galleryId = 'my-gallery'
 const imagesData = [
   {
     key: 'xyz',
-    href: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg',
+    href: 'src/assets/img/DSC00667.jpg',
     altText: 'my image 1 duh',
     src: imgSrc,
-    width: 500,
-    height: 500
+    width: 3000,
+    height: 2000
   },
   {
     key: 'abc',
-    href: '../assets/img/DSC00667.jpg',
+    href: 'src/assets/img/DSC00631.jpg',
     altText: 'my image 2 duh',
-    src: imgSrc,
-    width: 500,
-    height: 500
-  },
-  {
-    key: 'xyz',
-    href: 'https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg',
-    altText: 'my image 1 duh',
-    src: imgSrc,
-    width: 500,
-    height: 500
-  },
-  {
-    key: 'abc',
-    href: '../assets/img/DSC00667.jpg',
-    altText: 'my image 2 duh',
-    src: imgSrc,
-    width: 500,
-    height: 500
+    src: imgVert,
+    width: 2000,
+    height: 3000
   }
 ]
 
@@ -45,13 +30,14 @@ let lightbox = null
 
 onMounted(() => {
   if (!lightbox) {
-    lightbox = new PhotoSwipeLightbox({
+    const lightboxOptions = {
       gallery: '#' + galleryId,
       children: 'a',
-      showHideAnimationType: 'none',
-      zoomAnimationDuration: false,
+      showHideAnimationType: 'zoom',
+      bgOpacity: 0.6,
       pswpModule: () => import('photoswipe')
-    })
+    }
+    lightbox = new PhotoSwipeLightbox(lightboxOptions)
     lightbox.init()
   }
 })
@@ -79,8 +65,10 @@ methods: { onInit: () => { console.log('lightGallery has been initialized'); }, 
       style="
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-        /* align-items: center; */
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 0.5em;
+        /* flex-wrap: wrap; */
       "
     >
       <a
@@ -91,9 +79,8 @@ methods: { onInit: () => { console.log('lightGallery has been initialized'); }, 
         :data-pswp-height="imgData.height"
         target="_blank"
         ref="noreferrer"
-        style="padding: 0; display: flex"
       >
-        <img :alt="imgData.altText" :src="imgData.src" width="80%" style="margin: 0 auto" />
+        <img :alt="imgData.altText" :src="imgData.src" width="100%" />
       </a>
     </div>
   </Transition>
