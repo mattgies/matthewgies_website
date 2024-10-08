@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import imgSrc from '@/assets/img/DSC00667.jpg'
-import imgVert from '@/assets/img/DSC00631.jpg'
+import imgSrc from '@/assets/img/DSC00667_thumbnail.jpg'
+import imgVert from '@/assets/img/DSC00631_thumbnail.jpg'
 
 interface Image {
   key: string
@@ -14,7 +14,7 @@ interface Image {
 let images: Image[] = [
   {
     key: 'xyz',
-    href: './src/assets/img/DSC00667.jpg',
+    href: './src/assets/img/DSC00667_thumbnail.jpg',
     altText: 'my image 1 duh',
     src: imgSrc,
     width: 3000,
@@ -22,7 +22,7 @@ let images: Image[] = [
   },
   {
     key: 'abc',
-    href: './src/assets/img/DSC00631.jpg',
+    href: './src/assets/img/DSC00631_thumbnail.jpg',
     altText: 'my image 2 duh',
     src: imgVert,
     width: 2000,
@@ -30,7 +30,7 @@ let images: Image[] = [
   },
   {
     key: 'def',
-    href: './src/assets/img/DSC00631.jpg',
+    href: './src/assets/img/DSC00631_thumbnail.jpg',
     altText: 'my image 2 duh',
     src: imgVert,
     width: 2000,
@@ -38,7 +38,7 @@ let images: Image[] = [
   },
   {
     key: 'ghi',
-    href: './src/assets/img/DSC00667.jpg',
+    href: './src/assets/img/DSC00667_thumbnail.jpg',
     altText: 'my image 1 duh',
     src: imgSrc,
     width: 3000,
@@ -46,7 +46,7 @@ let images: Image[] = [
   },
   {
     key: 'abc',
-    href: './src/assets/img/DSC00631.jpg',
+    href: './src/assets/img/DSC00631_thumbnail.jpg',
     altText: 'my image 2 duh',
     src: imgVert,
     width: 2000,
@@ -54,7 +54,7 @@ let images: Image[] = [
   },
   {
     key: 'ghi',
-    href: './src/assets/img/DSC00667.jpg',
+    href: './src/assets/img/DSC00667_thumbnail.jpg',
     altText: 'my image 1 duh',
     src: imgSrc,
     width: 3000,
@@ -62,7 +62,7 @@ let images: Image[] = [
   },
   {
     key: 'def',
-    href: './src/assets/img/DSC00631.jpg',
+    href: './src/assets/img/DSC00631_thumbnail.jpg',
     altText: 'my image 2 duh',
     src: imgVert,
     width: 2000,
@@ -70,10 +70,18 @@ let images: Image[] = [
   }
 ]
 
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import type { Ref } from 'vue'
+
 let rowWidth = ref(1200)
 let scaledImages: Ref<Image[]> = ref([])
+
+onMounted(() => {
+  const gallery = document.getElementById('photo-gallery')
+  console.log(`mounted with ${gallery?.offsetWidth}`)
+  rowWidth.value = gallery?.offsetWidth!
+  scaledImages.value = scaleImages(images)
+})
 
 function scaleImages(images: Image[]) {
   const rowMaxHeight: number = 500
@@ -122,7 +130,6 @@ function scaleImages(images: Image[]) {
 scaledImages.value = scaleImages(images)
 addEventListener('resize', () => {
   const gallery = document.getElementById('photo-gallery')
-  // console.log(gallery?.offsetWidth)
   rowWidth.value = gallery?.offsetWidth!
   scaledImages.value = scaleImages(images)
 })
