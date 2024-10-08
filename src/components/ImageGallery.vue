@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import imgSrc from '@/assets/img/DSC00667.jpg'
 import imgVert from '@/assets/img/DSC00631.jpg'
-import PhotoSwipeLightbox from 'photoswipe/lightbox'
-import 'photoswipe/style.css'
 
-const galleryId = 'my-gallery'
-const imagesData = [
+interface Image {
+  key: string
+  href: string
+  altText: string
+  src: string
+  width: number
+  height: number
+}
+
+let images: Image[] = [
   {
     key: 'xyz',
-    href: 'src/assets/img/DSC00667.jpg',
+    href: './src/assets/img/DSC00667.jpg',
     altText: 'my image 1 duh',
     src: imgSrc,
     width: 3000,
@@ -16,7 +22,47 @@ const imagesData = [
   },
   {
     key: 'abc',
-    href: 'src/assets/img/DSC00631.jpg',
+    href: './src/assets/img/DSC00631.jpg',
+    altText: 'my image 2 duh',
+    src: imgVert,
+    width: 2000,
+    height: 3000
+  },
+  {
+    key: 'def',
+    href: './src/assets/img/DSC00631.jpg',
+    altText: 'my image 2 duh',
+    src: imgVert,
+    width: 2000,
+    height: 3000
+  },
+  {
+    key: 'ghi',
+    href: './src/assets/img/DSC00667.jpg',
+    altText: 'my image 1 duh',
+    src: imgSrc,
+    width: 3000,
+    height: 2000
+  },
+  {
+    key: 'abc',
+    href: './src/assets/img/DSC00631.jpg',
+    altText: 'my image 2 duh',
+    src: imgVert,
+    width: 2000,
+    height: 3000
+  },
+  {
+    key: 'ghi',
+    href: './src/assets/img/DSC00667.jpg',
+    altText: 'my image 1 duh',
+    src: imgSrc,
+    width: 3000,
+    height: 2000
+  },
+  {
+    key: 'def',
+    href: './src/assets/img/DSC00631.jpg',
     altText: 'my image 2 duh',
     src: imgVert,
     width: 2000,
@@ -24,64 +70,73 @@ const imagesData = [
   }
 ]
 
-import { onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
+import type { Ref } from 'vue'
+let rowWidth = ref(1200)
+let scaledImages: Ref<Image[]> = ref([])
 
-let lightbox = null
+function scaleImages(images: Image[]) {
+  const rowMaxHeight: number = 500
+  const spacing: number = 10
 
-onMounted(() => {
-  if (!lightbox) {
-    const lightboxOptions = {
-      gallery: '#' + galleryId,
-      children: 'a',
-      showHideAnimationType: 'zoom',
-      bgOpacity: 0.6,
-      pswpModule: () => import('photoswipe')
+  // [height, width] for each img
+  for (let img of images) {
+    let scalingFactor = rowMaxHeight / img.height
+    img.height *= scalingFactor
+    img.width *= scalingFactor
+  }
+
+  const finalScaledImages: Image[] = []
+  let currentRow: Image[] = []
+  let currentRowImgWidthSum: number = 0
+  for (const img of images) {
+    currentRowImgWidthSum += img.width
+    currentRow.push(img)
+
+    if (currentRowImgWidthSum >= rowWidth.value) {
+      const desiredWidthOfImagesAndSpacing = rowWidth.value - spacing * (currentRow.length - 1)
+      const scalingFactor = desiredWidthOfImagesAndSpacing / currentRowImgWidthSum
+      for (let img of currentRow) {
+        img.height *= scalingFactor
+        img.width *= scalingFactor
+      }
+      finalScaledImages.push(...currentRow)
+
+      currentRow = []
+      currentRowImgWidthSum = 0
     }
-    lightbox = new PhotoSwipeLightbox(lightboxOptions)
-    lightbox.init()
   }
-})
 
-onUnmounted(() => {
-  if (lightbox) {
-    lightbox.destroy()
-    lightbox = null
+  if (currentRow) {
+    const scalingFactor = rowMaxHeight / currentRow[0].height
+    for (let img of currentRow) {
+      img.height *= scalingFactor
+      img.width *= scalingFactor
+    }
+    finalScaledImages.push(...currentRow)
   }
-})
 
-const show: boolean = true
+  return finalScaledImages
+}
+
+scaledImages.value = scaleImages(images)
+addEventListener('resize', () => {
+  const gallery = document.getElementById('photo-gallery')
+  // console.log(gallery?.offsetWidth)
+  rowWidth.value = gallery?.offsetWidth!
+  scaledImages.value = scaleImages(images)
+})
 </script>
 
-@Options({ components: { Lightgallery, }, data: () => ({ plugins: [lgThumbnail, lgZoom], }),
-methods: { onInit: () => { console.log('lightGallery has been initialized'); }, onBeforeSlide: () =>
-{ console.log('calling before slide'); }, }, })
-
 <template>
-  <p>image gallery here</p>
-  <Transition>
-    <div
-      v-show="show"
-      :id="galleryId"
-      style="
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        column-gap: 0.5em;
-        /* flex-wrap: wrap; */
-      "
+  <div id="photo-gallery">
+    <a
+      v-for="imgData in scaledImages"
+      :key="imgData.key"
+      :href="imgData.href"
+      :style="{ width: imgData.width + 'px' }"
     >
-      <a
-        v-for="imgData in imagesData"
-        :key="imgData.key"
-        :href="imgData.href"
-        :data-pswp-width="imgData.width"
-        :data-pswp-height="imgData.height"
-        target="_blank"
-        ref="noreferrer"
-      >
-        <img :alt="imgData.altText" :src="imgData.src" width="100%" />
-      </a>
-    </div>
-  </Transition>
+      <img :alt="imgData.altText" :src="imgData.src" :style="{ width: imgData.width + 'px' }" />
+    </a>
+  </div>
 </template>
