@@ -28,7 +28,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   align-content: stretch;
-  row-gap: 10px;
+  row-gap: 5px;
 }
 
 /* .gallery-image-a {

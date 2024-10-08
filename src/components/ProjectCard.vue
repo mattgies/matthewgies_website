@@ -1,8 +1,8 @@
 <script setup lang="ts">
 defineProps<{
-  projectTitle: string
-  description: string
-}>()
+  projectTitle: string;
+  description: string;
+}>();
 </script>
 
 <template>
