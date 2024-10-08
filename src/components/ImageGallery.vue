@@ -76,13 +76,6 @@ import type { Ref } from 'vue'
 let rowWidth = ref(1200)
 let scaledImages: Ref<Image[]> = ref([])
 
-onMounted(() => {
-  const gallery = document.getElementById('photo-gallery')
-  console.log(`mounted with ${gallery?.offsetWidth}`)
-  rowWidth.value = gallery?.offsetWidth!
-  scaledImages.value = scaleImages(images)
-})
-
 function scaleImages(images: Image[]) {
   const rowMaxHeight: number = 500
   const spacing: number = 10
@@ -127,7 +120,13 @@ function scaleImages(images: Image[]) {
   return finalScaledImages
 }
 
-scaledImages.value = scaleImages(images)
+onMounted(() => {
+  const gallery = document.getElementById('photo-gallery')
+  console.log(`mounted with ${gallery?.offsetWidth}`)
+  rowWidth.value = gallery?.offsetWidth!
+  scaledImages.value = scaleImages(images)
+})
+
 addEventListener('resize', () => {
   const gallery = document.getElementById('photo-gallery')
   rowWidth.value = gallery?.offsetWidth!
