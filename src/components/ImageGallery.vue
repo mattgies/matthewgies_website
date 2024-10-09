@@ -1,11 +1,4 @@
 <script setup lang="ts">
-import imgSrc from '@/assets/img/DSC00667_thumbnail.jpg';
-import imgVert from '@/assets/img/DSC00631_thumbnail.jpg';
-import otherOne from '@/assets/img/DSC08318.jpg';
-import pic4 from '@/assets/img/DSC08596.jpg';
-import pic5 from '@/assets/img/DSC08625.jpg';
-import pic6 from '@/assets/img/DSC08635.jpg';
-
 interface Image {
   key: string;
   href: string;
@@ -15,62 +8,28 @@ interface Image {
   height: number;
 }
 
-let images: Image[] = [
-  {
-    key: 'xyz',
-    href: './src/assets/img/DSC00667_thumbnail.jpg',
-    altText: 'my image 1 duh',
-    src: imgSrc,
-    width: 3000,
-    height: 2000
-  },
-  {
-    key: 'abc',
-    href: './src/assets/img/DSC00631_thumbnail.jpg',
-    altText: 'my image 2 duh',
-    src: imgVert,
-    width: 2000,
-    height: 3000
-  },
-  {
-    key: 'toledo',
-    href: './src',
-    altText: 'x',
-    src: otherOne,
-    width: 2000,
-    height: 3000
-  },
-  {
-    key: 'cinque',
-    href: './src',
-    altText: 'x',
-    src: pic4,
-    width: 2000,
-    height: 3000
-  },
-  {
-    key: 'cinque2',
-    href: './src',
-    altText: 'x',
-    src: pic5,
-    width: 3000,
-    height: 2000
-  },
-  {
-    key: 'levanto',
-    href: './src',
-    altText: 'x',
-    src: pic6,
-    width: 3000,
-    height: 2000
-  }
-];
-
 import { onMounted, ref } from 'vue';
 import type { Ref } from 'vue';
 
 let rowWidth = ref(1200);
 let scaledImages: Ref<Image[]> = ref([]);
+
+const gallery = Object.values(
+  import.meta.glob('../assets/img/*.jpg', { eager: true, query: '?url', import: 'default' })
+);
+const galleryWithInfo: Image[] = [];
+for (const img of gallery) {
+  const [width, height] = img.split('/').pop()!.split('_')[0].split('x');
+  galleryWithInfo.push({
+    src: img,
+    width: +width,
+    height: +height,
+    key: img,
+    href: img,
+    altText: 'you already know'
+  });
+}
+scaledImages.value = galleryWithInfo;
 
 function scaleImages(images: Image[]) {
   const rowMaxHeight: number = 500;
@@ -119,7 +78,7 @@ let triggeredThisFrame = false;
 const doResize = () => {
   const gallery = document.getElementById('photo-gallery');
   rowWidth.value = gallery?.offsetWidth!;
-  scaledImages.value = scaleImages(images);
+  scaledImages.value = scaleImages(galleryWithInfo);
   triggeredThisFrame = false;
 };
 
@@ -136,17 +95,46 @@ onMounted(() => {
     scheduleResize();
   });
 });
+
+const fullSizeImages: string[] = [];
+const thumbnailImages: string[] = [];
+gallery.forEach((img) => {
+  if (img.endsWith('thumbnail.jpg')) {
+    thumbnailImages.push(img);
+  } else {
+    fullSizeImages.push(img);
+  }
+});
+
+import FsLightbox from 'fslightbox-vue/v3';
+let lightboxSlideNum = ref(1);
+let lightboxToggler = ref(false);
+
+function openLightboxToSlide(slideNum: number) {
+  lightboxToggler.value = !lightboxToggler.value;
+  lightboxSlideNum.value = slideNum;
+}
 </script>
 
 <template>
+  <FsLightbox :sources="gallery" :toggler="lightboxToggler" :slide="lightboxSlideNum"> </FsLightbox>
+  <!-- <img v-for="img in scaledImages" :src="img.src" :key="img.key" /> -->
   <div id="photo-gallery">
     <a
-      v-for="imgData in scaledImages"
+      v-for="(imgData, index) in scaledImages"
       :key="imgData.key"
-      :href="imgData.href"
-      :style="{ width: imgData.width + 'px' }"
+      :style="{
+        width: imgData.width + 'px'
+      }"
+      @click="openLightboxToSlide(index + 1)"
     >
-      <img :alt="imgData.altText" :src="imgData.src" :style="{ width: imgData.width + 'px' }" />
+      <img
+        :alt="imgData.altText"
+        :src="imgData.src"
+        :style="{
+          width: imgData.width + 'px'
+        }"
+      />
     </a>
   </div>
 </template>
