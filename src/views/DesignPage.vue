@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import ProjectCard from '../components/ProjectCard.vue'
+import ProjectCard from '../components/ProjectCard.vue';
 defineProps<{
-  text: string
-}>()
+  text: string;
+}>();
 
-const weLoopin: {}[] = [
+const weLoopin: { title: string; text: string }[] = [
   {
     title: 'yup',
     text: 'first one'
@@ -13,16 +13,18 @@ const weLoopin: {}[] = [
     title: 'nope',
     text: 'another one'
   }
-]
+];
 </script>
 
 <template>
-  <p>My text is {{ text }}</p>
-  <ProjectCard
-    v-for="obj in weLoopin"
-    :key="obj.title"
-    :projectTitle="obj.title"
-    :description="obj.text"
-  />
-  <ProjectCard projectTitle="my - proj" description="this is my proj" />
+  <div>
+    <p>My text is {{ text }}</p>
+    <ProjectCard
+      v-for="obj in weLoopin"
+      :key="obj.title"
+      :projectTitle="obj.title"
+      :description="obj.text"
+    />
+    <ProjectCard projectTitle="my - proj" description="this is my proj" />
+  </div>
 </template>

@@ -1,5 +1,9 @@
 @import './base.css';
 
+:root {
+  --sidebar-width: 20em;
+}
+
 @font-face {
   font-family: 'Rowdies';
   src: url('./fonts/Rowdies-Regular.ttf') format('truetype');
@@ -7,15 +11,20 @@
 
 * {
   font-family: 'Rowdies';
+  margin: 0;
 }
 
-nav {
-  font-size: 1.5em;
+body {
+  color: var(--color-text);
+  background: var(--color-background);
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
 }
 
 #photo-gallery {
   margin: auto;
-  max-width: 1200px;
+  /* max-width: 1200px; */
 
   /* display: grid;
   gap: 1em;
@@ -25,11 +34,16 @@ nav {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
   align-content: stretch;
   row-gap: 5px;
+  column-gap: 10px;
 }
+
+/* .gallery-image {
+  transition: 0s;
+} */
 
 /* .gallery-image-a {
   height: 20em;
@@ -52,48 +66,131 @@ img {
 
 #app {
   /* max-width: 1280px; */
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
+  width: 100%;
   font-weight: normal;
 }
 
 a {
   text-decoration: none;
-  color: hsla(20, 100%, 37%, 1);
-  /* transition: 0.4s; */
+  /* transition: 1s; */
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(180, 2%, 11%, 0.2);
+@keyframes logo-bounce {
+  0% {
+    transform: rotate(25deg);
   }
+  50% {
+    width: 3.5em;
+    margin: 1.75em;
+  }
+  100% {
+    transform: rotate(-55deg);
+  }
+}
+
+.nav-elem {
+  font-size: 1em;
+  margin: 0.5em;
+}
+
+.nav-logo {
+  width: 3.5em;
+  margin: 0.5em;
+  /* animation: logo-bounce 2s ease-in-out alternate infinite both; */
+}
+
+.nav-hamburger-menu {
+  margin: 0.5em;
+}
+
+a:hover {
+  color: orange;
+  /* transition: 1s; */
+}
+
+main {
+  width: 80%;
+  margin: auto;
 }
 
 nav {
+  height: 5em;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: center;
   align-items: center;
+  font-size: 1.5em;
+  background-color: #041625;
+  margin-bottom: 2em;
+  position: sticky;
+  z-index: 10;
 }
 
-/* @media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-} */
-
-.page-opacity-enter-from,
-.page-opacity-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 
-.page-opacity-enter-active,
-.page-opacity-leave-active {
-  transition: 200ms ease all;
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
+
+.fade-enter-active {
+  transition: all 0.2s ease;
+  transition-delay: 0.2s;
+}
+
+.fade-leave-active {
+  transition: all 0.2s ease;
+}
+
+.slide-enter-from {
+  transform: translate(0, -200%);
+}
+
+.slide-enter-active {
+  transition: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.slide-leave-active {
+  transition: 0.3s;
+}
+
+.slide-leave-to {
+  transform: translate(0, -200%);
+}
+
+/* On mobile devices */
+@media (max-width: 768px) {
+  * {
+    color: orange;
+  }
+
+  .nav-elem {
+    display: none;
+  }
+
+  nav {
+    justify-content: space-between;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .nav-logo {
+    width: 3em;
+  }
+}
+
+/* On desktop devices */
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
 }

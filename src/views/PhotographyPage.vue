@@ -4,6 +4,6 @@ import ImageGallery from '../components/ImageGallery.vue';
 
 <template>
   <div>
-    <p>we at home beech</p>
+    <ImageGallery />
   </div>
 </template>

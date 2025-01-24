@@ -14,7 +14,7 @@ import type { Ref } from 'vue';
 let rowWidth = ref(1200);
 let scaledImages: Ref<Image[]> = ref([]);
 
-const gallery = Object.values(
+const gallery: string[] = Object.values(
   import.meta.glob('../assets/img/*.jpg', { eager: true, query: '?url', import: 'default' })
 );
 const galleryWithInfo: Image[] = [];
@@ -77,7 +77,7 @@ function scaleImages(images: Image[]) {
 let triggeredThisFrame = false;
 const doResize = () => {
   const gallery = document.getElementById('photo-gallery');
-  rowWidth.value = gallery?.offsetWidth!;
+  rowWidth.value = gallery?.offsetWidth! - 1;
   scaledImages.value = scaleImages(galleryWithInfo);
   triggeredThisFrame = false;
 };
@@ -118,9 +118,9 @@ function openLightboxToSlide(slideNum: number) {
 
 <template>
   <FsLightbox :sources="gallery" :toggler="lightboxToggler" :slide="lightboxSlideNum"> </FsLightbox>
-  <!-- <img v-for="img in scaledImages" :src="img.src" :key="img.key" /> -->
   <div id="photo-gallery">
     <a
+      class="gallery-image"
       v-for="(imgData, index) in scaledImages"
       :key="imgData.key"
       :style="{
