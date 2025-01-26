@@ -36,25 +36,29 @@ let hamburgerMenuExpanded: Ref<boolean> = ref(false);
     <RouterLink to="/photography" class="nav-elem">Photography</RouterLink>
   </nav>
 
-  <Transition name="fade">
-    <div v-show="!hamburgerMenuExpanded">
-      <button
-        class="mobile-only mobile-nav-open-hamburger-menu"
-        @click="hamburgerMenuExpanded = !hamburgerMenuExpanded"
-      >
-        open menu
-      </button>
-    </div>
-  </Transition>
+  <nav class="mobile-only mobile-nav-header">
+    <RouterLink to="/" class="nav-logo">
+      <img src="./assets/img/ma_logo.png" />
+    </RouterLink>
+    <button
+      class="mobile-only mobile-nav-button-open-hamburger-menu"
+      @click="hamburgerMenuExpanded = !hamburgerMenuExpanded"
+    >
+      open menu
+    </button>
+  </nav>
 
   <Transition name="fade">
-    <nav v-if="hamburgerMenuExpanded" class="mobile-nav mobile-only">
+    <nav v-show="hamburgerMenuExpanded" class="mobile-nav-menu-expanded mobile-only">
       <button
         class="mobile-nav-close-button"
         @click="hamburgerMenuExpanded = !hamburgerMenuExpanded"
       >
         X
       </button>
+      <RouterLink @click="hamburgerMenuExpanded = false" to="/" class="mobile-nav-elem"
+        >Home</RouterLink
+      >
       <RouterLink @click="hamburgerMenuExpanded = false" to="/programming" class="mobile-nav-elem"
         >Programming</RouterLink
       >
@@ -65,10 +69,6 @@ let hamburgerMenuExpanded: Ref<boolean> = ref(false);
         >Photography</RouterLink
       >
     </nav>
-  </Transition>
-
-  <Transition name="fade">
-    <p v-if="hamburgerMenuExpanded">peek a boo!</p>
   </Transition>
 
   <main>

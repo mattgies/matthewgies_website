@@ -155,34 +155,49 @@ main {
 }
 
 nav {
-  height: 5em;
   display: flex;
   flex-direction: row;
   flex-wrap: no-wrap;
   justify-content: center;
   align-items: center;
-  font-size: 1.5em;
+  font-size: 1.75rem;
   background-color: var(--color-nav);
   background: none;
-  margin-bottom: 2em;
+  margin-bottom: 1rem;
   position: sticky;
   z-index: 10;
 }
 
-.mobile-nav {
+.mobile-nav-menu-expanded {
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: var(--color-background);
   height: 100vh;
   justify-content: space-around;
   font-size: 5rem;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
 }
 
-.mobile-nav-open-hamburger-menu,
+.mobile-nav-elem {
+  font-size: 12vw;
+}
+
+.mobile-nav-header {
+  height: 7rem;
+  background: #ffffff;
+}
+
+.mobile-nav-button-open-hamburger-menu,
 .mobile-nav-close-button {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 1rem;
+  right: 1rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .fade-enter-from,
@@ -241,6 +256,10 @@ nav {
 
   .nav-logo {
     width: 3em;
+  }
+
+  main {
+    width: 95%;
   }
 }
 

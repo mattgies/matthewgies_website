@@ -32,12 +32,12 @@ for (const img of gallery) {
 scaledImages.value = galleryWithInfo;
 
 function scaleImages(images: Image[]) {
-  const rowMaxHeight: number = 500;
-  const spacing: number = 10;
+  const ROW_MAX_HEIGHT: number = 500;
+  const SPACING: number = 10;
 
   // [height, width] for each img
   for (let img of images) {
-    let scalingFactor = rowMaxHeight / img.height;
+    let scalingFactor = ROW_MAX_HEIGHT / img.height;
     img.height *= scalingFactor;
     img.width *= scalingFactor;
   }
@@ -50,7 +50,7 @@ function scaleImages(images: Image[]) {
     currentRow.push(img);
 
     if (currentRowImgWidthSum >= rowWidth.value) {
-      const desiredWidthOfImagesAndSpacing = rowWidth.value - spacing * (currentRow.length - 1);
+      const desiredWidthOfImagesAndSpacing = rowWidth.value - SPACING * (currentRow.length - 1);
       const scalingFactor = desiredWidthOfImagesAndSpacing / currentRowImgWidthSum;
       for (let img of currentRow) {
         img.height *= scalingFactor;
@@ -64,7 +64,7 @@ function scaleImages(images: Image[]) {
   }
 
   if (currentRow.length > 0) {
-    const scalingFactor = rowMaxHeight / currentRow[0].height;
+    const scalingFactor = ROW_MAX_HEIGHT / currentRow[0].height;
     for (let img of currentRow) {
       img.height *= scalingFactor;
       img.width *= scalingFactor;
