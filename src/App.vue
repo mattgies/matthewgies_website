@@ -7,20 +7,65 @@ let hamburgerMenuExpanded: Ref<boolean> = ref(false);
 </script>
 
 <template>
-  <nav>
+  <svg viewBox="-5 4 10 20">
+    <!-- stroke-width = gap * (1 + i/4) -->
+    <!-- r = base + i *  -->
+    <circle
+      v-for="i in 5"
+      :key="i"
+      cx="0"
+      cy="0"
+      :r="0.1 * (Math.random() + 2) * 3 + 'rem'"
+      :stroke-width="0.1 * (Math.random() + 2) * 2 + 'rem'"
+      :stroke="'var(--color-theme-' + i + ')'"
+      :stroke-dasharray="(Math.random() + 1) * 2 + ' ' + (Math.random() + 1) * 5"
+      :stroke-opacity="0.4"
+      fill="none"
+      :style="
+        'animation: rotate-2d ' + (Math.random() + 2) * 3 + 's ease-in-out normal infinite forwards'
+      "
+    />
+  </svg>
+
+  <nav class="desktop-only">
+    <RouterLink to="/programming" class="nav-elem">Programming</RouterLink>
     <RouterLink to="/" class="nav-logo">
       <img src="./assets/img/ma_logo.png" />
     </RouterLink>
-    <RouterLink to="/programming" class="nav-elem">Programming</RouterLink>
     <RouterLink to="/design" class="nav-elem">Design</RouterLink>
     <RouterLink to="/photography" class="nav-elem">Photography</RouterLink>
-    <button
-      class="nav-hamburger-menu mobile-only"
-      @click="hamburgerMenuExpanded = !hamburgerMenuExpanded"
-    >
-      ham-here
-    </button>
   </nav>
+
+  <Transition name="fade">
+    <div v-show="!hamburgerMenuExpanded">
+      <button
+        class="mobile-only mobile-nav-open-hamburger-menu"
+        @click="hamburgerMenuExpanded = !hamburgerMenuExpanded"
+      >
+        open menu
+      </button>
+    </div>
+  </Transition>
+
+  <Transition name="fade">
+    <nav v-if="hamburgerMenuExpanded" class="mobile-nav mobile-only">
+      <button
+        class="mobile-nav-close-button"
+        @click="hamburgerMenuExpanded = !hamburgerMenuExpanded"
+      >
+        X
+      </button>
+      <RouterLink @click="hamburgerMenuExpanded = false" to="/programming" class="mobile-nav-elem"
+        >Programming</RouterLink
+      >
+      <RouterLink @click="hamburgerMenuExpanded = false" to="/design" class="mobile-nav-elem"
+        >Design</RouterLink
+      >
+      <RouterLink @click="hamburgerMenuExpanded = false" to="/photography" class="mobile-nav-elem"
+        >Photography</RouterLink
+      >
+    </nav>
+  </Transition>
 
   <Transition name="fade">
     <p v-if="hamburgerMenuExpanded">peek a boo!</p>
