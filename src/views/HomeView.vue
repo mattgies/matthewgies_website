@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import ImageGallery from '../components/ImageGallery.vue';
-</script>
-
 <template>
   <div>
     <p>we at home beech</p>

@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
+import ScrollToTopButton from './components/ScrollToTopButton.vue';
 import type { Ref } from 'vue';
 import { ref } from 'vue';
 
+const pages: string[] = ['programming', 'home', 'design', 'photography'];
 let activePage: Ref<string> = ref('home');
 let hamburgerMenuExpanded: Ref<boolean> = ref(false);
 </script>
@@ -27,37 +29,20 @@ let hamburgerMenuExpanded: Ref<boolean> = ref(false);
       "
     />
   </svg>
+  <ScrollToTopButton />
 
   <nav class="desktop-only">
     <RouterLink
-      @click="activePage = 'programming'"
-      to="/programming"
+      v-for="page of pages"
+      :key="page"
+      @click="activePage = page"
+      :to="page == 'home' ? '/' : '/' + page"
       class="nav-elem"
-      :class="{ 'nav-elem-active': activePage == 'programming' }"
-      >Programming</RouterLink
+      :class="{ 'nav-elem-active': activePage == page }"
     >
-    <RouterLink
-      @click="activePage = 'home'"
-      to="/"
-      class="nav-logo"
-      :class="{ 'nav-elem-active': activePage == 'home' }"
-    >
-      <img src="./assets/img/ma_logo.png" />
+      {{ page == 'home' ? '' : page.charAt(0).toUpperCase() + page.slice(1) }}
+      <img class="nav-logo" v-if="page == 'home'" src="./assets/img/ma_logo.png" />
     </RouterLink>
-    <RouterLink
-      @click="activePage = 'design'"
-      to="/design"
-      class="nav-elem"
-      :class="{ 'nav-elem-active': activePage == 'design' }"
-      >Design</RouterLink
-    >
-    <RouterLink
-      @click="activePage = 'photography'"
-      to="/photography"
-      class="nav-elem"
-      :class="{ 'nav-elem-active': activePage == 'photography' }"
-      >Photography</RouterLink
-    >
   </nav>
 
   <nav class="mobile-only mobile-nav-header">
@@ -81,49 +66,22 @@ let hamburgerMenuExpanded: Ref<boolean> = ref(false);
         X
       </button>
       <RouterLink
+        v-for="page of pages"
+        :key="page"
+        :to="page == 'home' ? '/' : '/' + page"
         @click="
           hamburgerMenuExpanded = false;
-          activePage = 'home';
+          activePage = page;
         "
-        to="/"
         class="mobile-nav-elem"
-        :class="{ 'nav-elem-active': activePage == 'home' }"
-        >Home</RouterLink
+        :class="{ 'nav-elem-active': activePage == page }"
       >
-      <RouterLink
-        @click="
-          hamburgerMenuExpanded = false;
-          activePage = 'programming';
-        "
-        to="/programming"
-        class="mobile-nav-elem"
-        :class="{ 'nav-elem-active': activePage == 'programming' }"
-        >Programming</RouterLink
-      >
-      <RouterLink
-        @click="
-          hamburgerMenuExpanded = false;
-          activePage = 'design';
-        "
-        to="/design"
-        class="mobile-nav-elem"
-        :class="{ 'nav-elem-active': activePage == 'design' }"
-        >Design</RouterLink
-      >
-      <RouterLink
-        @click="
-          hamburgerMenuExpanded = false;
-          activePage = 'photography';
-        "
-        to="/photography"
-        class="mobile-nav-elem"
-        :class="{ 'nav-elem-active': activePage == 'photography' }"
-        >Photography</RouterLink
-      >
+        {{ page.charAt(0).toUpperCase() + page.slice(1) }}
+      </RouterLink>
     </nav>
   </Transition>
 
-  <main>
+  <main :style="hamburgerMenuExpanded ? 'position: fixed' : ''">
     <RouterView v-slot="{ Component }">
       <Transition name="fade">
         <component :is="Component" />

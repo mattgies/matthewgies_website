@@ -25,6 +25,8 @@ body {
 svg {
   z-index: -10;
   position: absolute;
+  height: 100%;
+  width: 100%;
 }
 /* 
 .dot {
@@ -84,7 +86,6 @@ img {
 
 a {
   text-decoration: none;
-  transition: 1s;
 }
 
 @keyframes logo-bounce {
@@ -99,11 +100,11 @@ a {
 .nav-elem {
   font-size: 1em;
   margin: 0.5em;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .nav-elem-active {
-  color: blue;
+  color: pink;
 }
 
 @keyframes flip-y-axis {
@@ -139,12 +140,16 @@ a {
 
 a:hover,
 button:hover {
-  color: orange;
   cursor: pointer;
 }
 
 .nav-elem:hover {
-  transform: translateY(-0.3rem);
+  color: purple;
+  transform: translateY(-0.2rem);
+}
+
+.mobile-nav-elem:hover {
+  color: yellow;
 }
 
 main {
@@ -174,14 +179,29 @@ nav {
   justify-content: space-around;
   font-size: 5rem;
   position: absolute;
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
   top: 0;
   left: 0;
+  padding-top: 5vh;
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.scroll-to-top-button {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 10;
+  height: 5rem;
+  width: 5rem;
 }
 
 .mobile-nav-elem {
   font-size: 10vw;
+  transition: 0.2s;
 }
 
 .mobile-nav-header {
