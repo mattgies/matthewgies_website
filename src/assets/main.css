@@ -58,16 +58,9 @@ svg {
   column-gap: 10px;
 }
 
-/* .gallery-image {
-  transition: 0s;
-} */
-
-/* .gallery-image-a {
-  height: 20em;
-  max-width: 40%;
-  padding: 0;
-  flex-grow: 1;
-} */
+.gallery-image:hover {
+  animation: logo-bounce 0.5s;
+}
 
 img {
   width: 100%;
@@ -91,25 +84,26 @@ img {
 
 a {
   text-decoration: none;
-  /* transition: 1s; */
+  transition: 1s;
 }
 
 @keyframes logo-bounce {
-  0% {
-    transform: rotate(25deg);
+  25% {
+    transform: rotate(-2deg);
   }
-  50% {
-    width: 3.5em;
-    margin: 1.75em;
-  }
-  100% {
-    transform: rotate(-55deg);
+  75% {
+    transform: rotate(2deg);
   }
 }
 
 .nav-elem {
   font-size: 1em;
   margin: 0.5em;
+  transition: 1s;
+}
+
+.nav-elem-active {
+  color: blue;
 }
 
 @keyframes flip-y-axis {
@@ -147,11 +141,15 @@ a:hover,
 button:hover {
   color: orange;
   cursor: pointer;
-  /* transition: 1s; */
+}
+
+.nav-elem:hover {
+  transform: translateY(-0.3rem);
 }
 
 main {
   width: 80%;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -164,7 +162,7 @@ nav {
   font-size: 1.75rem;
   background-color: var(--color-nav);
   background: none;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   position: sticky;
   z-index: 10;
 }
@@ -173,7 +171,6 @@ nav {
   display: flex;
   flex-direction: column;
   background: var(--color-background);
-  height: 100vh;
   justify-content: space-around;
   font-size: 5rem;
   position: absolute;
@@ -184,12 +181,13 @@ nav {
 }
 
 .mobile-nav-elem {
-  font-size: 12vw;
+  font-size: 10vw;
 }
 
 .mobile-nav-header {
   height: 7rem;
   background: var(--color-background-mute);
+  margin-bottom: 1rem;
 }
 
 .mobile-nav-button-open-hamburger-menu,
@@ -225,20 +223,19 @@ nav {
 }
 
 .slide-enter-from {
-  transform: translate(0, -200%);
+  transform: translate(0, 200%);
 }
 
 .slide-enter-active {
-  transition: 0.3s;
-  transition-delay: 0.3s;
+  transition: 0.2s;
 }
 
 .slide-leave-active {
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .slide-leave-to {
-  transform: translate(0, -200%);
+  transform: translate(0, 200%);
 }
 
 /* On mobile devices */

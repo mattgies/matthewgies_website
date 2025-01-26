@@ -15,7 +15,11 @@ let rowWidth = ref(1200);
 let scaledImages: Ref<Image[]> = ref([]);
 
 const gallery: string[] = Object.values(
-  import.meta.glob('../assets/img/*.jpg', { eager: true, query: '?url', import: 'default' })
+  import.meta.glob('../assets/img/photography/*.jpg', {
+    eager: true,
+    query: '?url',
+    import: 'default'
+  })
 );
 const galleryWithInfo: Image[] = [];
 for (const img of gallery) {

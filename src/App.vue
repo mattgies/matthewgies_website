@@ -3,11 +3,12 @@ import { RouterLink, RouterView } from 'vue-router';
 import type { Ref } from 'vue';
 import { ref } from 'vue';
 
+let activePage: Ref<string> = ref('home');
 let hamburgerMenuExpanded: Ref<boolean> = ref(false);
 </script>
 
 <template>
-  <svg viewBox="-5 4 10 20">
+  <svg viewBox="-5 4 10 10">
     <!-- stroke-width = gap * (1 + i/4) -->
     <!-- r = base + i *  -->
     <circle
@@ -28,12 +29,35 @@ let hamburgerMenuExpanded: Ref<boolean> = ref(false);
   </svg>
 
   <nav class="desktop-only">
-    <RouterLink to="/programming" class="nav-elem">Programming</RouterLink>
-    <RouterLink to="/" class="nav-logo">
+    <RouterLink
+      @click="activePage = 'programming'"
+      to="/programming"
+      class="nav-elem"
+      :class="{ 'nav-elem-active': activePage == 'programming' }"
+      >Programming</RouterLink
+    >
+    <RouterLink
+      @click="activePage = 'home'"
+      to="/"
+      class="nav-logo"
+      :class="{ 'nav-elem-active': activePage == 'home' }"
+    >
       <img src="./assets/img/ma_logo.png" />
     </RouterLink>
-    <RouterLink to="/design" class="nav-elem">Design</RouterLink>
-    <RouterLink to="/photography" class="nav-elem">Photography</RouterLink>
+    <RouterLink
+      @click="activePage = 'design'"
+      to="/design"
+      class="nav-elem"
+      :class="{ 'nav-elem-active': activePage == 'design' }"
+      >Design</RouterLink
+    >
+    <RouterLink
+      @click="activePage = 'photography'"
+      to="/photography"
+      class="nav-elem"
+      :class="{ 'nav-elem-active': activePage == 'photography' }"
+      >Photography</RouterLink
+    >
   </nav>
 
   <nav class="mobile-only mobile-nav-header">
@@ -48,7 +72,7 @@ let hamburgerMenuExpanded: Ref<boolean> = ref(false);
     </button>
   </nav>
 
-  <Transition name="fade">
+  <Transition name="slide">
     <nav v-show="hamburgerMenuExpanded" class="mobile-nav-menu-expanded mobile-only">
       <button
         class="mobile-nav-close-button"
@@ -56,16 +80,44 @@ let hamburgerMenuExpanded: Ref<boolean> = ref(false);
       >
         X
       </button>
-      <RouterLink @click="hamburgerMenuExpanded = false" to="/" class="mobile-nav-elem"
+      <RouterLink
+        @click="
+          hamburgerMenuExpanded = false;
+          activePage = 'home';
+        "
+        to="/"
+        class="mobile-nav-elem"
+        :class="{ 'nav-elem-active': activePage == 'home' }"
         >Home</RouterLink
       >
-      <RouterLink @click="hamburgerMenuExpanded = false" to="/programming" class="mobile-nav-elem"
+      <RouterLink
+        @click="
+          hamburgerMenuExpanded = false;
+          activePage = 'programming';
+        "
+        to="/programming"
+        class="mobile-nav-elem"
+        :class="{ 'nav-elem-active': activePage == 'programming' }"
         >Programming</RouterLink
       >
-      <RouterLink @click="hamburgerMenuExpanded = false" to="/design" class="mobile-nav-elem"
+      <RouterLink
+        @click="
+          hamburgerMenuExpanded = false;
+          activePage = 'design';
+        "
+        to="/design"
+        class="mobile-nav-elem"
+        :class="{ 'nav-elem-active': activePage == 'design' }"
         >Design</RouterLink
       >
-      <RouterLink @click="hamburgerMenuExpanded = false" to="/photography" class="mobile-nav-elem"
+      <RouterLink
+        @click="
+          hamburgerMenuExpanded = false;
+          activePage = 'photography';
+        "
+        to="/photography"
+        class="mobile-nav-elem"
+        :class="{ 'nav-elem-active': activePage == 'photography' }"
         >Photography</RouterLink
       >
     </nav>
