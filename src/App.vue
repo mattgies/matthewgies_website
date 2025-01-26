@@ -44,7 +44,7 @@ let hamburgerMenuExpanded: Ref<boolean> = ref(false);
       class="mobile-only mobile-nav-button-open-hamburger-menu"
       @click="hamburgerMenuExpanded = !hamburgerMenuExpanded"
     >
-      open menu
+      <img src="./assets/svg/icon_hamburger_menu.svg" />
     </button>
   </nav>
 
