@@ -152,6 +152,30 @@ button:hover {
   color: yellow;
 }
 
+.design-projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+article {
+  width: 80vw;
+  max-width: 80rem;
+  background-color: #121212;
+  background: linear-gradient(182deg, #cccccc, #5548b0);
+  background-size: 100% 200%;
+  margin: 1rem 0 1rem 0;
+  padding: 2rem;
+  transition: 0.5s;
+  border-radius: 1rem;
+  border: 0.1rem solid black;
+}
+
+article:hover {
+  background-size: 100% 100%;
+}
+
 main {
   width: 80%;
   max-width: 1200px;

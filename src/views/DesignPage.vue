@@ -17,7 +17,7 @@ const weLoopin: { title: string; text: string }[] = [
 </script>
 
 <template>
-  <div>
+  <div class="design-projects">
     <p>My text is {{ text }}</p>
     <ProjectCard
       v-for="obj in weLoopin"

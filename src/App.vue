@@ -7,6 +7,15 @@ import { ref } from 'vue';
 const pages: string[] = ['programming', 'home', 'design', 'photography'];
 let activePage: Ref<string> = ref('home');
 let hamburgerMenuExpanded: Ref<boolean> = ref(false);
+
+const nums = [];
+for (let i = 0; i < 5; i++) {
+  nums.push(0.1 * (Math.random() + 2) * 3);
+  nums.push(0.1 * (Math.random() + 2) * 2);
+  nums.push((Math.random() + 1) * 2);
+  nums.push((Math.random() + 1) * 5);
+  nums.push((Math.random() + 2) * 3);
+}
 </script>
 
 <template>
@@ -18,17 +27,16 @@ let hamburgerMenuExpanded: Ref<boolean> = ref(false);
       :key="i"
       cx="0"
       cy="0"
-      :r="0.1 * (Math.random() + 2) * 3 + 'rem'"
-      :stroke-width="0.1 * (Math.random() + 2) * 2 + 'rem'"
+      :r="nums[i * 5] + 'rem'"
+      :stroke-width="nums[i * 5 + 1] + 'rem'"
       :stroke="'var(--color-theme-' + i + ')'"
-      :stroke-dasharray="(Math.random() + 1) * 2 + ' ' + (Math.random() + 1) * 5"
+      :stroke-dasharray="nums[i * 5 + 2] + ' ' + nums[i * 5 + 3]"
       :stroke-opacity="0.4"
       fill="none"
-      :style="
-        'animation: rotate-2d ' + (Math.random() + 2) * 3 + 's ease-in-out normal infinite forwards'
-      "
+      :style="'animation: rotate-2d ' + nums[i * 5 + 4] + 's ease-in-out normal infinite forwards'"
     />
   </svg>
+
   <ScrollToTopButton />
 
   <nav class="desktop-only">
