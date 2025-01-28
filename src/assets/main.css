@@ -194,8 +194,9 @@ nav {
 }
 
 .mobile-nav-elem {
-  font-size: 10vw;
+  font-size: 4rem;
   transition: var(--base-transition-speed);
+  margin: 2rem;
 }
 
 .mobile-nav-header {
@@ -308,10 +309,6 @@ nav {
 
 .slide-from-right-leave-to {
   transform: translate(200%, 0);
-}
-
-.mobile-nav-menu-expanded body {
-  overflow: hidden;
 }
 
 /* 

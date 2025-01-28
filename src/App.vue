@@ -76,7 +76,7 @@ const handleMobileNavOpenClose = () => {
         :key="page"
         :to="page == 'home' ? '/' : '/' + page"
         @click="
-          hamburgerMenuExpanded = false;
+          handleMobileNavOpenClose();
           activePage = page;
         "
         :class="[
