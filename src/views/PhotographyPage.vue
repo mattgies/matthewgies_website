@@ -4,6 +4,6 @@ import ImageGallery from '../components/ImageGallery.vue';
 
 <template>
   <div>
-    <ImageGallery />
+    <ImageGallery v-once />
   </div>
 </template>

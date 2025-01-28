@@ -5,9 +5,9 @@ let scrollToTopButton = useTemplateRef('scrollToTopButton');
 
 const handleScroll = () => {
   if (window.scrollY > 500) {
-    scrollToTopButton.value.classList.remove('invisible');
+    scrollToTopButton.value!.classList.remove('invisible');
   } else {
-    scrollToTopButton.value.classList.add('invisible');
+    scrollToTopButton.value!.classList.add('invisible');
   }
 };
 

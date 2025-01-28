@@ -1,30 +1,59 @@
 <script setup lang="ts">
-import ProjectCard from '../components/ProjectCard.vue';
+import ProjectCard from '@/components/ProjectCard.vue';
 defineProps<{
   text: string;
 }>();
 
-const weLoopin: { title: string; text: string }[] = [
+interface ProjectDescription {
+  title: string;
+  subtitle: string;
+  coverImgSrc: string;
+  projectLink: string;
+}
+
+const projects: ProjectDescription[] = [
   {
     title: 'yup',
-    text: 'first one'
+    subtitle: 'first one',
+    coverImgSrc: './assets/img/photography/500x750_DSC00631_thumbnail.jpg',
+    projectLink: './design'
   },
   {
     title: 'nope',
-    text: 'another one'
+    subtitle: 'another one',
+    coverImgSrc: './assets/img/ma_logo.png',
+    projectLink: './photography'
+  },
+  {
+    title: 'yup',
+    subtitle: 'first one',
+    coverImgSrc: './assets/img/ma_logo.png',
+    projectLink: './design'
+  },
+  {
+    title: 'nope',
+    subtitle: 'another one',
+    coverImgSrc: './assets/img/ma_logo.png',
+    projectLink: './photography'
+  },
+  {
+    title: 'yup',
+    subtitle: 'first one',
+    coverImgSrc: './assets/img/ma_logo.png',
+    projectLink: './home'
   }
 ];
 </script>
 
 <template>
-  <div class="design-projects">
-    <p>My text is {{ text }}</p>
+  <div class="project-gallery">
     <ProjectCard
-      v-for="obj in weLoopin"
-      :key="obj.title"
-      :projectTitle="obj.title"
-      :description="obj.text"
+      v-for="proj in projects"
+      :key="proj.title"
+      :title="proj.title"
+      :subtitle="proj.subtitle"
+      :coverImgSrc="proj.coverImgSrc"
+      :href="proj.projectLink"
     />
-    <ProjectCard projectTitle="my - proj" description="this is my proj" />
   </div>
 </template>

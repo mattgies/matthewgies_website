@@ -8,7 +8,7 @@ const pages: string[] = ['programming', 'home', 'design', 'photography'];
 let activePage: Ref<string> = ref('home');
 let hamburgerMenuExpanded: Ref<boolean> = ref(false);
 
-const nums = [];
+const nums: Number[] = [];
 for (let i = 0; i < 5; i++) {
   nums.push(0.1 * (Math.random() + 2) * 3);
   nums.push(0.1 * (Math.random() + 2) * 2);
@@ -19,34 +19,33 @@ for (let i = 0; i < 5; i++) {
 </script>
 
 <template>
-  <svg viewBox="-5 4 10 10">
-    <!-- stroke-width = gap * (1 + i/4) -->
-    <!-- r = base + i *  -->
+  <!-- <svg v-once viewBox="-5 4 10 10">
     <circle
       v-for="i in 5"
-      :key="i"
+      :key="i - 1"
       cx="0"
       cy="0"
-      :r="nums[i * 5] + 'rem'"
-      :stroke-width="nums[i * 5 + 1] + 'rem'"
-      :stroke="'var(--color-theme-' + i + ')'"
-      :stroke-dasharray="nums[i * 5 + 2] + ' ' + nums[i * 5 + 3]"
+      :r="nums[(i - 1) * 5] + 'rem'"
+      :stroke-width="nums[(i - 1) * 5 + 1] + 'rem'"
+      :stroke="'var(--color-theme-' + (i - 1) + ')'"
+      :stroke-dasharray="nums[(i - 1) * 5 + 2] + ' ' + nums[(i - 1) * 5 + 3]"
       :stroke-opacity="0.4"
       fill="none"
-      :style="'animation: rotate-2d ' + nums[i * 5 + 4] + 's ease-in-out normal infinite forwards'"
+      :style="
+        'animation: rotate-2d ' + nums[(i - 1) * 5 + 4] + 's ease-in-out normal infinite forwards'
+      "
     />
-  </svg>
+  </svg> -->
 
   <ScrollToTopButton />
 
   <nav class="desktop-only">
     <RouterLink
-      v-for="page of pages"
+      v-for="(page, i) of pages"
       :key="page"
       @click="activePage = page"
       :to="page == 'home' ? '/' : '/' + page"
-      class="nav-elem"
-      :class="{ 'nav-elem-active': activePage == page }"
+      :class="['nav-elem', activePage == page ? 'nav-elem-active' : '', `color-theme-${i + 1}`]"
     >
       {{ page == 'home' ? '' : page.charAt(0).toUpperCase() + page.slice(1) }}
       <img class="nav-logo" v-if="page == 'home'" src="./assets/img/ma_logo.png" />
@@ -74,22 +73,25 @@ for (let i = 0; i < 5; i++) {
         X
       </button>
       <RouterLink
-        v-for="page of pages"
+        v-for="(page, i) of pages"
         :key="page"
         :to="page == 'home' ? '/' : '/' + page"
         @click="
           hamburgerMenuExpanded = false;
           activePage = page;
         "
-        class="mobile-nav-elem"
-        :class="{ 'nav-elem-active': activePage == page }"
+        :class="[
+          'mobile-nav-elem',
+          activePage == page ? 'nav-elem-active' : '',
+          `color-theme-${i + 1}`
+        ]"
       >
         {{ page.charAt(0).toUpperCase() + page.slice(1) }}
       </RouterLink>
     </nav>
   </Transition>
 
-  <main :style="hamburgerMenuExpanded ? 'position: fixed' : ''">
+  <main>
     <RouterView v-slot="{ Component }">
       <Transition name="fade">
         <component :is="Component" />
