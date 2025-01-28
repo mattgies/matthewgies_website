@@ -40,4 +40,9 @@ const router = createRouter({
   ]
 });
 
+const DEFAULT_TITLE = 'Matthew Gies';
+router.afterEach((to, from) => {
+  document.title = to.valueOf().name! || DEFAULT_TITLE;
+});
+
 export default router;

@@ -16,6 +16,11 @@ for (let i = 0; i < 5; i++) {
   nums.push((Math.random() + 1) * 5);
   nums.push((Math.random() + 2) * 3);
 }
+
+const handleMobileNavOpenClose = () => {
+  hamburgerMenuExpanded.value = !hamburgerMenuExpanded.value;
+  document.body.style.overflow = hamburgerMenuExpanded.value ? 'hidden' : '';
+};
 </script>
 
 <template>
@@ -58,20 +63,14 @@ for (let i = 0; i < 5; i++) {
     </RouterLink>
     <button
       class="mobile-only mobile-nav-button-open-hamburger-menu"
-      @click="hamburgerMenuExpanded = !hamburgerMenuExpanded"
+      @click="handleMobileNavOpenClose()"
     >
-      <img src="./assets/svg/icon_hamburger_menu.svg" />
+      {{ hamburgerMenuExpanded ? 'X' : 'O' }}
     </button>
   </nav>
 
-  <Transition name="slide">
+  <Transition name="slide-from-right">
     <nav v-show="hamburgerMenuExpanded" class="mobile-nav-menu-expanded mobile-only">
-      <button
-        class="mobile-nav-close-button"
-        @click="hamburgerMenuExpanded = !hamburgerMenuExpanded"
-      >
-        X
-      </button>
       <RouterLink
         v-for="(page, i) of pages"
         :key="page"
