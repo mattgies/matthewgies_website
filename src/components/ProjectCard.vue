@@ -5,7 +5,9 @@ defineProps<{
   coverImgSrc: string;
 }>();
 
-import { getImageUrl } from '@/helpers';
+function getImageUrl(name: string) {
+  return new URL(name, import.meta.url).href;
+}
 </script>
 
 <template>

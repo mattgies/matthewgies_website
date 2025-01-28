@@ -15,31 +15,31 @@ const projects: ProjectDescription[] = [
   {
     title: 'yup',
     subtitle: 'first one',
-    coverImgSrc: './assets/img/photography/500x750_DSC00631_thumbnail.jpg',
+    coverImgSrc: '../assets/img/photography/500x750_DSC00631_thumbnail.jpg',
     projectLink: './design'
   },
   {
     title: 'nope',
     subtitle: 'another one',
-    coverImgSrc: './assets/img/ma_logo.png',
+    coverImgSrc: '../assets/img/ma_logo.png',
     projectLink: './photography'
   },
   {
     title: 'yup',
     subtitle: 'first one',
-    coverImgSrc: './assets/img/ma_logo.png',
+    coverImgSrc: '../assets/img/ma_logo.png',
     projectLink: './design'
   },
   {
     title: 'nope',
     subtitle: 'another one',
-    coverImgSrc: './assets/img/ma_logo.png',
+    coverImgSrc: '../assets/img/ma_logo.png',
     projectLink: './photography'
   },
   {
     title: 'yup',
     subtitle: 'first one',
-    coverImgSrc: './assets/img/ma_logo.png',
+    coverImgSrc: '../assets/img/ma_logo.png',
     projectLink: './home'
   }
 ];
