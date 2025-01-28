@@ -6,7 +6,7 @@ defineProps<{
 }>();
 
 function getImageUrl(name: string) {
-  return new URL(name, import.meta.url).href;
+  return new URL(`/src/assets/${name}`, import.meta.url).href;
 }
 </script>
 

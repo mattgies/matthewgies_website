@@ -5,6 +5,6 @@ import NewImageGallery from '@/components/NewImageGallery.vue';
 <template>
   <NewImageGallery></NewImageGallery>
   <div>
-    <p>we at home beech</p>
+    <p>we at home beeeeeech</p>
   </div>
 </template>

@@ -357,7 +357,7 @@ nav {
   .project-gallery {
     grid-template-columns: 100%;
     gap: 0.5rem;
-    width: 100%;
+    width: 96%;
   }
 
   #photo-gallery {
