@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: 'Rowdies';
-  src: url('./fonts/Righteous/Righteous-Regular.ttf') format('truetype');
+  src: url('./fonts/Rowdies/Rowdies-Light.ttf') format('truetype');
 }
 
 * {
@@ -176,6 +176,8 @@ nav {
   justify-content: space-evenly;
   font-size: 5rem;
   height: calc(100vh - 7rem);
+  position: absolute;
+  background-color: black;
   margin-top: -1rem;
   width: 100vw;
 }
@@ -254,7 +256,7 @@ nav {
 }
 
 .project-card-title {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .project-card-subtitle {
@@ -296,19 +298,19 @@ nav {
 }
 
 .slide-from-right-enter-from {
-  transform: translate(200%, 0);
+  transform: translate(100%, 0);
 }
 
 .slide-from-right-enter-active {
-  transition: calc(var(--base-transition-speed) * 2);
+  transition: calc(var(--base-transition-speed) * 10);
 }
 
 .slide-from-right-leave-active {
-  transition: calc(var(--base-transition-speed) * 4);
+  transition: calc(var(--base-transition-speed) * 10);
 }
 
 .slide-from-right-leave-to {
-  transform: translate(200%, 0);
+  transform: translate(100%, 0);
 }
 
 /* 
