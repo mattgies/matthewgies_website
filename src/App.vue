@@ -19,6 +19,7 @@ for (let i = 0; i < 5; i++) {
 
 const handleMobileNavOpenClose = () => {
   hamburgerMenuExpanded.value = !hamburgerMenuExpanded.value;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   document.body.style.overflow = hamburgerMenuExpanded.value ? 'hidden' : '';
 };
 </script>
@@ -64,29 +65,48 @@ const handleMobileNavOpenClose = () => {
     <button
       class="mobile-only mobile-nav-button-open-hamburger-menu"
       @click="handleMobileNavOpenClose()"
+      style="margin-right: 2rem"
     >
-      {{ hamburgerMenuExpanded ? 'X' : 'O' }}
+      {{ hamburgerMenuExpanded ? 'close' : 'menu' }}
     </button>
   </nav>
 
   <Transition name="slide-from-right">
     <nav v-show="hamburgerMenuExpanded" class="mobile-nav-menu-expanded mobile-only">
-      <RouterLink
-        v-for="(page, i) of pages"
-        :key="page"
-        :to="page == 'home' ? '/' : '/' + page"
-        @click="
-          handleMobileNavOpenClose();
-          activePage = page;
-        "
-        :class="[
-          'mobile-nav-elem',
-          activePage == page ? 'nav-elem-active' : '',
-          `color-theme-${i + 1}`
-        ]"
-      >
-        {{ page.charAt(0).toUpperCase() + page.slice(1) }}
-      </RouterLink>
+      <div style="display: flex; flex-direction: column">
+        <RouterLink
+          v-for="(page, i) of pages"
+          :key="page"
+          :to="page == 'home' ? '/' : '/' + page"
+          @click="
+            handleMobileNavOpenClose();
+            activePage = page;
+          "
+          :class="[
+            'mobile-nav-elem',
+            activePage == page ? 'nav-elem-active' : '',
+            `color-theme-${i + 1}`
+          ]"
+        >
+          {{ page.charAt(0).toUpperCase() + page.slice(1) }}
+        </RouterLink>
+      </div>
+      <div style="display: flex; flex-direction: row; justify-items: start">
+        <a
+          class="mobile-nav-elem"
+          style="justify-self: baseline"
+          href="https://open.spotify.com/user/mattgies?si=046d4cdc03904e13"
+          target="_blank"
+          ><img style="width: 5rem" src="@/assets/svg/Spotify_icon.svg" />
+        </a>
+        <a
+          class="mobile-nav-elem"
+          style="justify-self: baseline"
+          href="https://www.linkedin.com/in/matthewgies/"
+          target="_blank"
+          ><img style="width: 5rem" src="@/assets/svg/LinkedIn_icon.svg" />
+        </a>
+      </div>
     </nav>
   </Transition>
 

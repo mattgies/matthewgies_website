@@ -11,8 +11,8 @@ html {
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
 
-  --vt-c-black: #0a0418;
-  --vt-c-black-soft: #222222;
+  --vt-c-black: #000000;
+  --vt-c-black-soft: #121418;
   --vt-c-black-mute: #282828;
 
   --vt-c-indigo: #2c3e50;
@@ -26,6 +26,10 @@ html {
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 1);
+
+  --linear-grad-green: linear-gradient(90deg, #26ad5c, #91ee7f);
+  --linear-grad-light-blue: linear-gradient(90deg, #3e57c3, #7dbcef);
+  --linear-grad-orange: linear-gradient(90deg, #f87918, #f8c455);
 }
 
 /* semantic color variables for this project */
@@ -47,8 +51,6 @@ html {
   --color-theme-3: #76b1f3;
   --color-theme-4: #a1e8e0;
   --color-theme-5: #d9f39e;
-
-  --section-gap: 160px;
 }
 
 @media (prefers-color-scheme: dark) {
