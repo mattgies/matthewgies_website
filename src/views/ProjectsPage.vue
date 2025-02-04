@@ -98,6 +98,8 @@ const projects: Project[] = [
 // let filters = ref([]);
 // console.log(filters.value);
 let filteredProjectsList = ref(projects);
+let filtersShown = ref(false);
+let visibleProjectTypes: ProjectType[] = ref([]);
 </script>
 
 <template>
@@ -109,38 +111,55 @@ let filteredProjectsList = ref(projects);
     allowfullscreen
   ></iframe> -->
   <div>
-    <button
-      @click="
-        filteredProjectsList = projects;
-        console.log(filteredProjectsList);
-      "
-    >
-      Remove filters
-    </button>
-    <button
-      @click="
-        filteredProjectsList = projects.filter((i) => i.types.includes(ProjectType.DESIGN));
-        console.log(filteredProjectsList);
-      "
-    >
-      Design only
-    </button>
-    <button
-      @click="
-        filteredProjectsList = projects.filter((i) => i.types.includes(ProjectType.GAME));
-        console.log(filteredProjectsList);
-      "
-    >
-      Game only
-    </button>
-    <button
-      @click="
-        filteredProjectsList = projects.filter((i) => i.types.includes(ProjectType.PROGRAMMING));
-        console.log(filteredProjectsList);
-      "
-    >
-      Programming only
-    </button>
+    <button @click="filtersShown = !filtersShown">Show Project Filters</button>
+    <div v-show="filtersShown">
+      <input
+        type="checkbox"
+        id="design-only"
+        value="DESIGN"
+        @click="
+          filters.push(ProjectType.DESIGN);
+          console.log(filters);
+        "
+      />
+      <label for="design-only">Design only</label>
+      <input type="checkbox" id="game-only" value="GAME" />
+      <label for="game-only">Game only</label>
+      <input type="checkbox" id="programming-only" value="PROGRAMMING" />
+      <label for="programming-only">Programming only</label>
+      <button
+        @click="
+          filteredProjectsList = projects;
+          console.log(filteredProjectsList);
+        "
+      >
+        Remove filters
+      </button>
+      <button
+        @click="
+          filteredProjectsList = projects.filter((i) => i.types.includes(ProjectType.DESIGN));
+          console.log(filteredProjectsList);
+        "
+      >
+        Design only
+      </button>
+      <button
+        @click="
+          filteredProjectsList = projects.filter((i) => i.types.includes(ProjectType.GAME));
+          console.log(filteredProjectsList);
+        "
+      >
+        Game only
+      </button>
+      <button
+        @click="
+          filteredProjectsList = projects.filter((i) => i.types.includes(ProjectType.PROGRAMMING));
+          console.log(filteredProjectsList);
+        "
+      >
+        Programming only
+      </button>
+    </div>
     <div class="project-gallery">
       <TransitionGroup name="fade">
         <ProjectCard

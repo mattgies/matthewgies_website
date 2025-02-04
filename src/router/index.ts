@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import AboutPage from '../views/AboutPage.vue';
 import HomeView from '../views/HomeView.vue';
 import ProjectsPage from '../views/ProjectsPage.vue';
-import ProgrammingPage from '../views/ProgrammingPage.vue';
 import PhotographyPage from '@/views/PhotographyPage.vue';
 
 const router = createRouter({
@@ -11,14 +11,6 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
-    },
-    {
-      path: '/programming',
-      name: 'programming',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: ProgrammingPage
     },
     {
       path: '/projects',
@@ -36,6 +28,11 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: PhotographyPage
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: AboutPage
     }
   ]
 });

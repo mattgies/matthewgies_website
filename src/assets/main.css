@@ -41,7 +41,6 @@ h1 {
   color: transparent;
   -webkit-text-fill-color: transparent;
   font-weight: 500;
-  letter-spacing: -0.05rem;
 }
 
 /* body:not(.has-smooth-scroll).disable-page-scroll {
@@ -193,6 +192,7 @@ nav {
   background-color: var(--color-background);
   margin-bottom: 2rem;
   z-index: 10;
+  height: 7rem;
 }
 
 .mobile-nav-menu-expanded {
@@ -236,7 +236,7 @@ nav {
   display: flex;
   justify-content: space-between;
   height: 7rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   top: 0;
 }
 
@@ -261,6 +261,7 @@ nav {
   column-gap: 2%;
   row-gap: 2%;
   margin: auto;
+  margin-top: 2rem;
   width: calc(100vw - 2rem);
 }
 

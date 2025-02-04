@@ -4,7 +4,7 @@ import ScrollToTopButton from './components/ScrollToTopButton.vue';
 import type { Ref } from 'vue';
 import { ref } from 'vue';
 
-const pages: string[] = ['programming', 'home', 'projects', 'photography'];
+const pages: string[] = ['home', 'projects', 'photography', 'about'];
 let activePage: Ref<string> = ref('home');
 let hamburgerMenuExpanded: Ref<boolean> = ref(false);
 
