@@ -27,9 +27,9 @@ html {
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 1);
 
-  --linear-grad-green: linear-gradient(90deg, #26ad5c, #91ee7f);
-  --linear-grad-light-blue: linear-gradient(90deg, #3e57c3, #7dbcef);
-  --linear-grad-orange: linear-gradient(90deg, #f87918, #f8c455);
+  --linear-grad-green: linear-gradient(90deg, #14d963, #b9fd9e);
+  --linear-grad-light-blue: linear-gradient(90deg, #2f88ec, #99cbf4);
+  --linear-grad-orange: linear-gradient(90deg, #fc7c19, #ffd375);
 }
 
 /* semantic color variables for this project */

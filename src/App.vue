@@ -54,18 +54,17 @@ const handleMobileNavOpenClose = () => {
       :class="['nav-elem', activePage == page ? 'nav-elem-active' : '', `color-theme-${i + 1}`]"
     >
       {{ page == 'home' ? '' : page.charAt(0).toUpperCase() + page.slice(1) }}
-      <img class="nav-logo" v-if="page == 'home'" src="./assets/img/ma_logo.png" />
+      <img class="nav-logo" v-if="page == 'home'" src="./assets/svg/file.svg" />
     </RouterLink>
   </nav>
 
   <nav class="mobile-only mobile-nav-header">
     <RouterLink to="/" class="nav-logo">
-      <img src="./assets/img/ma_logo.png" />
+      <img src="./assets/svg/file.svg" />
     </RouterLink>
     <button
       class="mobile-only mobile-nav-button-open-hamburger-menu"
       @click="handleMobileNavOpenClose()"
-      style="margin-right: 2rem"
     >
       {{ hamburgerMenuExpanded ? 'close' : 'menu' }}
     </button>
@@ -73,7 +72,7 @@ const handleMobileNavOpenClose = () => {
 
   <Transition name="slide-from-right">
     <nav v-show="hamburgerMenuExpanded" class="mobile-nav-menu-expanded mobile-only">
-      <div style="display: flex; flex-direction: column">
+      <div class="mobile-nav-menu-router-links">
         <RouterLink
           v-for="(page, i) of pages"
           :key="page"
@@ -91,19 +90,14 @@ const handleMobileNavOpenClose = () => {
           {{ page.charAt(0).toUpperCase() + page.slice(1) }}
         </RouterLink>
       </div>
-      <div style="display: flex; flex-direction: row; justify-items: start">
+      <div class="mobile-nav-menu-external-profile-links">
         <a
           class="mobile-nav-elem"
-          style="justify-self: baseline"
           href="https://open.spotify.com/user/mattgies?si=046d4cdc03904e13"
           target="_blank"
           ><img style="width: 5rem" src="@/assets/svg/Spotify_icon.svg" />
         </a>
-        <a
-          class="mobile-nav-elem"
-          style="justify-self: baseline"
-          href="https://www.linkedin.com/in/matthewgies/"
-          target="_blank"
+        <a class="mobile-nav-elem" href="https://www.linkedin.com/in/matthewgies/" target="_blank"
           ><img style="width: 5rem" src="@/assets/svg/LinkedIn_icon.svg" />
         </a>
       </div>

@@ -26,7 +26,7 @@ const projects: Project[] = [
     titleGradient: 'light-blue',
     subtitle: 'Mystery Game made in UE4',
     coverImgSrc: 'img/project_thumbnails/404_prod_not_found.png',
-    types: [ProjectType.DESIGN],
+    types: [ProjectType.DESIGN, ProjectType.GAME],
     projectLink: 'https://saffrona.itch.io/404-producer-not-found'
   },
   {
