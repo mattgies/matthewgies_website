@@ -92,13 +92,16 @@ const handleMobileNavOpenClose = () => {
       </div>
       <div class="mobile-nav-menu-external-profile-links">
         <a
-          class="mobile-nav-elem"
+          class="mobile-nav-external-profile-link"
           href="https://open.spotify.com/user/mattgies?si=046d4cdc03904e13"
           target="_blank"
-          ><img style="width: 5rem" src="@/assets/svg/Spotify_icon.svg" />
+          ><img src="@/assets/svg/Spotify_icon.svg" />
         </a>
-        <a class="mobile-nav-elem" href="https://www.linkedin.com/in/matthewgies/" target="_blank"
-          ><img style="width: 5rem" src="@/assets/svg/LinkedIn_icon.svg" />
+        <a
+          class="mobile-nav-external-profile-link"
+          href="https://www.linkedin.com/in/matthewgies/"
+          target="_blank"
+          ><img src="@/assets/svg/LinkedIn_icon.svg" />
         </a>
       </div>
     </nav>

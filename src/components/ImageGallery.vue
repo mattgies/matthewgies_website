@@ -15,15 +15,29 @@ let rowWidth = ref(1200);
 let scaledImages: Ref<Image[]> = ref([]);
 
 const gallery: string[] = Object.values(
-  import.meta.glob('../assets/img/photography/*.jpg', {
+  import.meta.glob('../assets/img/photography/*', {
     eager: true,
     query: '?url',
     import: 'default'
   })
 );
+
+const fullSizeImages: string[] = [];
+const thumbnailImages: string[] = [];
+gallery.forEach((img) => {
+  if (img.includes('thumbnail')) {
+    thumbnailImages.push(img);
+  } else {
+    fullSizeImages.push(img);
+  }
+});
+
+console.log(thumbnailImages);
+console.log(fullSizeImages);
+
 const galleryWithInfo: Image[] = [];
-for (const img of gallery) {
-  const [width, height] = img.split('/').pop()!.split('_')[0].split('x');
+for (const img of thumbnailImages) {
+  const [width, height] = img.split('/').pop()!.split('_')[1].split('x');
   galleryWithInfo.push({
     src: img,
     width: +width,
@@ -100,16 +114,6 @@ onMounted(() => {
   });
 });
 
-const fullSizeImages: string[] = [];
-const thumbnailImages: string[] = [];
-gallery.forEach((img) => {
-  if (img.endsWith('thumbnail.jpg')) {
-    thumbnailImages.push(img);
-  } else {
-    fullSizeImages.push(img);
-  }
-});
-
 import FsLightbox from 'fslightbox-vue/v3';
 let lightboxSlideNum = ref(1);
 let lightboxToggler = ref(false);
@@ -121,7 +125,8 @@ function openLightboxToSlide(slideNum: number) {
 </script>
 
 <template>
-  <FsLightbox :sources="gallery" :toggler="lightboxToggler" :slide="lightboxSlideNum"> </FsLightbox>
+  <FsLightbox :sources="fullSizeImages" :toggler="lightboxToggler" :slide="lightboxSlideNum">
+  </FsLightbox>
   <div id="photo-gallery">
     <a
       class="gallery-image"

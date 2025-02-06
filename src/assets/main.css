@@ -18,7 +18,7 @@
 }
 
 body {
-  background: var(--color-background-soft);
+  background: var(--base-color-soft);
   font-size: 15px;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
@@ -26,7 +26,7 @@ body {
 
 button {
   background-color: var(--color-background-soft);
-  border: 0.1rem solid white;
+  border: 0.1rem solid var(--color-text);
   height: 4rem;
   border-radius: 2rem;
   padding-left: 1.5rem;
@@ -232,7 +232,13 @@ nav {
   margin: 2rem;
 }
 
+.mobile-nav-external-profile-link {
+  width: 4rem;
+  margin: 2rem;
+}
+
 .mobile-nav-header {
+  background-color: var(--base-color-deep);
   display: flex;
   justify-content: space-between;
   height: 7rem;
@@ -242,6 +248,16 @@ nav {
 
 .mobile-nav-button-open-hamburger-menu {
   margin-right: 1rem;
+}
+
+.svg-visible {
+  /* filter: invert(1); */
+  fill: var(--color-text);
+}
+
+.svg-cut-out {
+  /* filter: invert(1); */
+  fill: var(--color-background);
 }
 
 .mobile-nav-menu-router-links {
@@ -274,7 +290,7 @@ nav {
   padding: 1rem;
   transition: var(--base-transition-speed);
   border-radius: 1rem;
-  border: 0.1rem solid black;
+  border: 0.1rem solid var(--base-color-mute);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
