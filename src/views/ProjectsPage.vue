@@ -22,6 +22,14 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: 'Wet Wet',
+    titleGradient: 'light-blue',
+    subtitle: 'Realtime WebGL water shader',
+    coverImgSrc: 'img/project_thumbnails/wet_wet.png',
+    types: [ProjectType.PROGRAMMING, ProjectType.DESIGN],
+    projectLink: 'https://mattgies.github.io/wet-wet-water-shader/'
+  },
+  {
     title: '404: Producer Not Found',
     titleGradient: 'light-blue',
     subtitle: 'Mystery Game made in UE4',
@@ -46,18 +54,10 @@ const projects: Project[] = [
     projectLink: 'https://artoramen.itch.io/dreaded-dark'
   },
   {
-    title: 'Clownage: Rise of the Clownival',
-    titleGradient: 'light-blue',
-    subtitle: 'another one',
-    coverImgSrc: 'img/project_thumbnails/',
-    types: [ProjectType.GAME],
-    projectLink: 'https://mattgies.itch.io/clownage'
-  },
-  {
     title: 'Journal Jams',
     titleGradient: 'light-blue',
     subtitle: 'A music recommendation application',
-    coverImgSrc: 'img/project_thumbnails/',
+    coverImgSrc: 'img/project_thumbnails/journal_jams.png',
     types: [ProjectType.PROGRAMMING],
     projectLink: 'https://github.com/AlexGrams/journal-jams'
   },
@@ -65,23 +65,23 @@ const projects: Project[] = [
     title: 'Minecraft Parkour AI',
     titleGradient: 'light-blue',
     subtitle: 'he jump',
-    coverImgSrc: 'img/ma_logo.png',
+    coverImgSrc: 'img/project_thumbnails/mc_parkour_ai.png',
     types: [ProjectType.PROGRAMMING],
     projectLink: 'https://github.com/mattgies/mc-parkour-ai'
   },
   {
-    title: 'Wet Wet',
+    title: 'Clownage: Rise of the Clownival',
     titleGradient: 'light-blue',
-    subtitle: 'Realtime WebGL water shader',
-    coverImgSrc: 'img/ma_logo.png',
-    types: [ProjectType.PROGRAMMING],
-    projectLink: 'https://mattgies.github.io/wet-wet-water-shader/'
+    subtitle: 'another one',
+    coverImgSrc: 'img/project_thumbnails/clownage.png',
+    types: [ProjectType.GAME],
+    projectLink: 'https://mattgies.itch.io/clownage'
   },
   {
     title: 'Hi5',
     titleGradient: 'light-blue',
     subtitle: 'DubHacks 2021 Submission',
-    coverImgSrc: 'img/ma_logo.png',
+    coverImgSrc: 'img/project_thumbnails/hi5.png',
     types: [ProjectType.DESIGN, ProjectType.PROGRAMMING],
     projectLink: 'https://www.figma.com/design/uFyeONSyabDq4XwUAezlRP' // 'https://github.com/maaarvin-was-here/hi5'
   },
@@ -89,7 +89,7 @@ const projects: Project[] = [
     title: 'Voxel',
     titleGradient: 'light-blue',
     subtitle: 'Design@UCI 2021 Project Team',
-    coverImgSrc: 'img/ma_logo.png',
+    coverImgSrc: 'img/project_thumbnails/voxel.png',
     types: [ProjectType.DESIGN],
     projectLink: 'https://www.figma.com/file/mcIoC33ocwb8NzrnBltc7u/high-fidelity'
   }

@@ -41,6 +41,7 @@ h1 {
   color: transparent;
   -webkit-text-fill-color: transparent;
   font-weight: 500;
+  transition: 2s;
 }
 
 /* body:not(.has-smooth-scroll).disable-page-scroll {
@@ -88,7 +89,9 @@ svg {
 }
 
 .gallery-image {
-  transition: var(--base-transition-speed);
+  box-sizing: border-box;
+  transition: all var(--base-transition-speed);
+  transition: opacity calc(var(--base-transition-speed) * 4);
 }
 
 .gallery-image:hover {
@@ -148,6 +151,19 @@ a {
   100% {
     transform: rotate3d(0, 1, 0, -180deg);
   }
+}
+
+@keyframes bump {
+  25% {
+    transform: translateY(-2rem);
+  }
+  75% {
+    transform: translateY(1rem);
+  }
+}
+
+.test-flip-animation {
+  animation: bump 1s ease alternate 1 both;
 }
 
 .nav-logo {
@@ -372,6 +388,10 @@ nav {
 .slide-from-right-leave-to {
   transform: translate(100%, 0);
 }
+
+/* .fslightbox-slide-btn:before {
+  content: 'nex';
+} */
 
 /* 
 .NEW-photo-gallery {

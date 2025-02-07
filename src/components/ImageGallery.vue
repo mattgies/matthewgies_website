@@ -32,9 +32,6 @@ gallery.forEach((img) => {
   }
 });
 
-console.log(thumbnailImages);
-console.log(fullSizeImages);
-
 const galleryWithInfo: Image[] = [];
 for (const img of thumbnailImages) {
   const [width, height] = img.split('/').pop()!.split('_')[1].split('x');
@@ -106,11 +103,27 @@ const scheduleResize = () => {
   triggeredThisFrame = true;
 };
 
+const cb = (entries: IntersectionObserverEntry[]) => {
+  for (const entry of entries) {
+    if (entry.isIntersecting) {
+      entry.target.classList.remove('invisible');
+    } else {
+      entry.target.classList.add('invisible');
+    }
+  }
+};
+const obs = new IntersectionObserver(cb);
+
 onMounted(() => {
   scheduleResize();
 
   addEventListener('resize', () => {
     scheduleResize();
+  });
+
+  const elems = document.querySelectorAll('.gallery-image');
+  elems.forEach((el) => {
+    obs.observe(el);
   });
 });
 
