@@ -26,6 +26,7 @@ html {
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 1);
+  --vt-c-text-dark-3: rgb(201, 201, 201);
 
   --linear-grad-green: linear-gradient(90deg, #14d963, #b9fd9e);
   --linear-grad-light-blue: linear-gradient(90deg, #2f88ec, #99cbf4);
@@ -59,6 +60,16 @@ html {
   --color-border: var(--base-color);
 }
 
+.mobile-nav-external-profile-link {
+  width: 4rem;
+  margin: 1.5rem;
+  filter: contrast(80%);
+}
+
+.mobile-nav-external-profile-link:hover {
+  filter: contrast(100%);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--vt-c-black);
@@ -70,17 +81,30 @@ html {
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-nav: var(--vt-c-black-mute);
-    --color-text: var(--vt-c-text-dark-2);
+    --color-text: var(--vt-c-text-dark-1);
+    --color-text-mute: var(--vt-c-text-dark-3);
 
     --base-color-deep: var(--vt-c-black);
     --base-color-soft: #13161c;
     --base-color-mute: #444242;
 
     --color-border: var(--base-color-deep);
+
+    /* --color-background: #1b2820;
+    --color-background-soft: var(--color-background);
+    --color-background-mute: var(--color-background);
+    --base-color-deep: var(--color-background);
+    --base-color-soft: var(--color-background);
+    --base-color-mute: var(--color-background);
+    --color-text: #d6d6a4; */
   }
 
   .mobile-nav-external-profile-link {
-    filter: invert(1);
+    filter: contrast(60%) invert(1);
+  }
+
+  .mobile-nav-external-profile-link:hover {
+    filter: contrast(100%) invert(1);
   }
 }
 

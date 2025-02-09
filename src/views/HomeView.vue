@@ -24,11 +24,14 @@ onMounted(() => {
 
 <template>
   <!-- <NewImageGallery></NewImageGallery> -->
-  <div>
+  <div style="width: 80%; margin: auto">
     <h1 id="my-test-h1" class="other test-flip-animation">I am an h1 tag.</h1>
     <h2>I am an h2 tag.</h2>
+    <hr style="border: 0.1rem solid var(--color-theme-2); border-radius: 0.1rem" />
     <h3>I am an h3 tag.</h3>
+    <hr />
     <h4>I am an h4 tag.</h4>
+    <hr />
     <h5>I am an h5 tag.</h5>
     <p>I am a p tag.</p>
     <p class="linear-grad-matcha">matcha grad</p>

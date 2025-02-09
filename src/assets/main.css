@@ -41,7 +41,7 @@ h1 {
   color: transparent;
   -webkit-text-fill-color: transparent;
   font-weight: 500;
-  transition: 2s;
+  /* transition: 2s; */
 }
 
 /* body:not(.has-smooth-scroll).disable-page-scroll {
@@ -135,10 +135,15 @@ a {
   font-size: 2rem;
   margin: 0.5rem 1.25rem 0.5rem 1.25rem;
   transition: var(--base-transition-speed);
+  color: var(--color-text-mute);
+}
+
+.nav-elem:hover {
+  color: var(--color-text);
 }
 
 .nav-elem-active {
-  color: #797878;
+  /* color: var(--color-theme-2); */
 }
 
 @keyframes flip-y-axis {
@@ -188,10 +193,6 @@ a {
 a:hover,
 button:hover {
   cursor: pointer;
-}
-
-.nav-elem:hover {
-  transform: translateY(-0.2rem);
 }
 
 main {
@@ -246,11 +247,11 @@ nav {
   font-size: 3rem;
   transition: var(--base-transition-speed);
   margin: 2rem;
+  color: var(--color-text-mute);
 }
 
-.mobile-nav-external-profile-link {
-  width: 4rem;
-  margin: 2rem;
+.mobile-nav-elem:hover {
+  color: var(--color-text);
 }
 
 .mobile-nav-header {
@@ -304,7 +305,7 @@ nav {
   /* background: linear-gradient(var(--color-background), var(--color-background-soft));
   background-size: 100% 400%; */
   padding: 1rem;
-  transition: var(--base-transition-speed);
+  /* transition: var(--base-transition-speed); */
   border-radius: 1rem;
   border: 0.1rem solid var(--base-color-mute);
   display: flex;
