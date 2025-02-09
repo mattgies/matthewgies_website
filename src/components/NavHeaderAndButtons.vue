@@ -1,16 +1,31 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { type Ref } from 'vue';
+import MobileNav from './MobileNav.vue';
 
 defineProps<{
   pages: string[];
 }>();
 
 let activePage: Ref<string> = ref('home');
+
+let hamburgerMenuExpanded: Ref<boolean> = ref(false);
+
+const handleMobileNavOpenClose = () => {
+  console.log(hamburgerMenuExpanded);
+  hamburgerMenuExpanded.value = !hamburgerMenuExpanded.value;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.body.style.overflow = hamburgerMenuExpanded.value ? 'hidden' : '';
+};
+
+addEventListener('resize', () => {
+  hamburgerMenuExpanded.value = false;
+  document.body.style.overflow = '';
+});
 </script>
 
 <template>
-  <nav class="desktop-only">
+  <header>
     <RouterLink
       @click="activePage = 'home'"
       to="/"
@@ -18,7 +33,7 @@ let activePage: Ref<string> = ref('home');
     >
       <img class="nav-logo" src="@/assets/svg/file.svg" />
     </RouterLink>
-    <div style="display: flex; flex-direction: row; align-items: center">
+    <nav class="desktop-only">
       <RouterLink
         v-for="(page, i) of pages.filter((page) => page != 'home')"
         :key="page"
@@ -45,6 +60,26 @@ let activePage: Ref<string> = ref('home');
           ><img src="@/assets/svg/github-mark.svg" />
         </a>
       </div>
-    </div>
-  </nav>
+    </nav>
+    <button
+      class="mobile-only mobile-nav-button-open-hamburger-menu"
+      @click="handleMobileNavOpenClose()"
+    >
+      {{ hamburgerMenuExpanded ? 'X' : 'O' }}
+    </button>
+  </header>
+  <Transition name="slide-from-right">
+    <MobileNav
+      v-if="hamburgerMenuExpanded"
+      v-model:hamMenuExpanded="hamburgerMenuExpanded"
+      :pages="pages"
+      @page-selected="
+        (newPage) => {
+          handleMobileNavOpenClose();
+          activePage = newPage;
+        }
+      "
+      :activePage="activePage"
+    />
+  </Transition>
 </template>

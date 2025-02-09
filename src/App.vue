@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
 import ScrollToTopButton from './components/ScrollToTopButton.vue';
-import DesktopNav from './components/DesktopNav.vue';
-import MobileNav from './components/MobileNav.vue';
+import NavHeaderAndButtons from './components/NavHeaderAndButtons.vue';
 
 const pages: string[] = ['home', 'projects', 'photography', 'about'];
 
@@ -37,9 +36,7 @@ for (let i = 0; i < 5; i++) {
 
   <ScrollToTopButton />
 
-  <DesktopNav :pages="pages" />
-
-  <MobileNav :pages="pages" />
+  <NavHeaderAndButtons :pages="pages" />
 
   <main>
     <RouterView v-slot="{ Component }">
