@@ -60,13 +60,14 @@ html {
   --color-border: var(--base-color);
 }
 
-.mobile-nav-external-profile-link {
+.external-profile-link {
+  display: inline-block;
   width: 4rem;
   margin: 1.5rem;
   filter: contrast(80%);
 }
 
-.mobile-nav-external-profile-link:hover {
+.external-profile-link:hover {
   filter: contrast(100%);
 }
 
@@ -99,11 +100,11 @@ html {
     --color-text: #d6d6a4; */
   }
 
-  .mobile-nav-external-profile-link {
+  .external-profile-link {
     filter: contrast(60%) invert(1);
   }
 
-  .mobile-nav-external-profile-link:hover {
+  .external-profile-link:hover {
     filter: contrast(100%) invert(1);
   }
 }
