@@ -25,7 +25,7 @@ const projects: Project[] = [
     title: 'Wet Wet',
     titleGradient: 'light-blue',
     subtitle: 'Realtime WebGL water shader',
-    coverImgSrc: 'img/project_thumbnails/wet_wet.png',
+    coverImgSrc: 'img/project_thumbnails/wet_wet.jpg',
     types: [ProjectType.PROGRAMMING, ProjectType.DESIGN],
     projectLink: 'https://mattgies.github.io/wet-wet-water-shader/'
   },
@@ -33,7 +33,7 @@ const projects: Project[] = [
     title: '404: Producer Not Found',
     titleGradient: 'light-blue',
     subtitle: 'Mystery Game made in UE4',
-    coverImgSrc: 'img/project_thumbnails/404_prod_not_found.png',
+    coverImgSrc: 'img/project_thumbnails/404_prod_not_found.jpg',
     types: [ProjectType.DESIGN, ProjectType.GAME],
     projectLink: 'https://saffrona.itch.io/404-producer-not-found'
   },
@@ -41,7 +41,7 @@ const projects: Project[] = [
     title: 'Root of All Evil',
     titleGradient: 'orange',
     subtitle: 'another one',
-    coverImgSrc: 'img/project_thumbnails/root_of_all_evil.png',
+    coverImgSrc: 'img/project_thumbnails/root_of_all_evil.jpg',
     types: [ProjectType.GAME],
     projectLink: 'https://hsdrummond.itch.io/root-of-all-evil'
   },
@@ -49,7 +49,7 @@ const projects: Project[] = [
     title: 'Dreaded Dark',
     titleGradient: 'green',
     subtitle: 'first one',
-    coverImgSrc: 'img/project_thumbnails/dreaded_dark.png',
+    coverImgSrc: 'img/project_thumbnails/dreaded_dark.jpg',
     types: [ProjectType.GAME],
     projectLink: 'https://artoramen.itch.io/dreaded-dark'
   },
@@ -57,7 +57,7 @@ const projects: Project[] = [
     title: 'Journal Jams',
     titleGradient: 'light-blue',
     subtitle: 'A music recommendation application',
-    coverImgSrc: 'img/project_thumbnails/journal_jams.png',
+    coverImgSrc: 'img/project_thumbnails/journal_jams.jpg',
     types: [ProjectType.PROGRAMMING],
     projectLink: 'https://github.com/AlexGrams/journal-jams'
   },
@@ -65,7 +65,7 @@ const projects: Project[] = [
     title: 'Minecraft Parkour AI',
     titleGradient: 'light-blue',
     subtitle: 'he jump',
-    coverImgSrc: 'img/project_thumbnails/mc_parkour_ai.png',
+    coverImgSrc: 'img/project_thumbnails/mc_parkour_ai.jpg',
     types: [ProjectType.PROGRAMMING],
     projectLink: 'https://github.com/mattgies/mc-parkour-ai'
   },
@@ -73,7 +73,7 @@ const projects: Project[] = [
     title: 'Clownage: Rise of the Clownival',
     titleGradient: 'light-blue',
     subtitle: 'another one',
-    coverImgSrc: 'img/project_thumbnails/clownage.png',
+    coverImgSrc: 'img/project_thumbnails/clownage.jpg',
     types: [ProjectType.GAME],
     projectLink: 'https://mattgies.itch.io/clownage'
   },
@@ -81,7 +81,7 @@ const projects: Project[] = [
     title: 'Hi5',
     titleGradient: 'light-blue',
     subtitle: 'DubHacks 2021 Submission',
-    coverImgSrc: 'img/project_thumbnails/hi5.png',
+    coverImgSrc: 'img/project_thumbnails/hi5.jpg',
     types: [ProjectType.DESIGN, ProjectType.PROGRAMMING],
     projectLink: 'https://www.figma.com/design/uFyeONSyabDq4XwUAezlRP' // 'https://github.com/maaarvin-was-here/hi5'
   },
@@ -89,7 +89,7 @@ const projects: Project[] = [
     title: 'Voxel',
     titleGradient: 'light-blue',
     subtitle: 'Design@UCI 2021 Project Team',
-    coverImgSrc: 'img/project_thumbnails/voxel.png',
+    coverImgSrc: 'img/project_thumbnails/voxel.jpg',
     types: [ProjectType.DESIGN],
     projectLink: 'https://www.figma.com/file/mcIoC33ocwb8NzrnBltc7u/high-fidelity'
   }

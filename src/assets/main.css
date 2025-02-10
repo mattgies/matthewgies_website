@@ -153,6 +153,10 @@ svg {
   width: 2rem;
 }
 
+path {
+  transition: var(--base-transition-speed);
+}
+
 .external-profile-link:first-of-type {
   margin-left: 2.5rem;
 }
