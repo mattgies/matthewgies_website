@@ -41,6 +41,9 @@ h1 {
   color: transparent;
   -webkit-text-fill-color: transparent;
   font-weight: 500;
+  transform: scale(1.25, 1);
+  transform-origin: top left;
+  max-width: 100%;
   /* transition: 2s; */
 }
 
@@ -50,12 +53,12 @@ h1 {
   top: var(--scrollTop,0)
 } */
 
-svg {
+/* svg {
   z-index: -10;
   position: absolute;
   height: 100%;
   width: 100%;
-}
+} */
 /* 
 .dot {
   position: absolute;
@@ -143,6 +146,13 @@ a {
   margin-right: 2.5rem;
 }
 
+.external-profile-link,
+svg {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+
 .external-profile-link:first-of-type {
   margin-left: 2.5rem;
 }
@@ -169,7 +179,7 @@ a {
 
 @keyframes bump {
   25% {
-    transform: translateY(-2rem);
+    transform: translateY(-2rem) scale(1.3, 1);
   }
   75% {
     transform: translateY(1rem);
@@ -298,13 +308,15 @@ nav {
 }
 
 .svg-visible {
-  /* filter: invert(1); */
-  fill: var(--color-text);
+  fill: var(--color-text-mute);
 }
 
 .svg-cut-out {
-  /* filter: invert(1); */
   fill: var(--color-background);
+}
+
+svg:hover > .svg-visible {
+  fill: var(--color-text);
 }
 
 .mobile-nav-menu-router-links {

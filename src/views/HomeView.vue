@@ -20,11 +20,21 @@ onMounted(() => {
     obs.observe(el);
   });
 });
+
+const changeTheme = () => {
+  if (document.querySelector(':root')?.classList.contains('green-theme')) {
+    document.querySelector(':root')?.classList.remove('green-theme');
+  } else {
+    document.querySelector(':root')?.classList.add('green-theme');
+  }
+  // document.getElementsByTagName('main')![0].classList.add('green-theme');
+};
 </script>
 
 <template>
   <!-- <NewImageGallery></NewImageGallery> -->
   <div style="width: 80%; margin: auto">
+    <button @click="changeTheme()">Change to green theme.</button>
     <h1 id="my-test-h1" class="other test-flip-animation">I am an h1 tag.</h1>
     <h2>I am an h2 tag.</h2>
     <hr style="border: 0.1rem solid var(--color-theme-2); border-radius: 0.1rem" />

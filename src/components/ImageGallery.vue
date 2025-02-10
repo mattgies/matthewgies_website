@@ -151,6 +151,7 @@ function openLightboxToSlide(slideNum: number) {
       @click="openLightboxToSlide(index + 1)"
     >
       <img
+        loading="lazy"
         :alt="imgData.altText"
         :src="imgData.src"
         :style="{

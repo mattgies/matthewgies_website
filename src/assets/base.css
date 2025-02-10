@@ -46,6 +46,7 @@ html {
   --color-heading: var(--vt-c-text-light-1);
   --color-nav: #f0e9df;
   --color-text: var(--vt-c-text-light-1);
+  --color-text-mute: var(--vt-c-text-light-2);
 
   --color-theme-1: #fca07c;
   --color-theme-2: #ef7cfc;
@@ -58,17 +59,6 @@ html {
   --base-color-mute: #e2e6ed;
   /* var(--vt-c-white-soft); */
   --color-border: var(--base-color);
-}
-
-.external-profile-link {
-  display: inline-block;
-  width: 4rem;
-  margin: 1.5rem;
-  filter: contrast(80%);
-}
-
-.external-profile-link:hover {
-  filter: contrast(100%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -99,14 +89,12 @@ html {
     --base-color-mute: var(--color-background);
     --color-text: #d6d6a4; */
   }
+}
 
-  .external-profile-link {
-    filter: contrast(60%) invert(1);
-  }
-
-  .external-profile-link:hover {
-    filter: contrast(100%) invert(1);
-  }
+.green-theme {
+  --color-text: rgb(238, 205, 143);
+  --color-text-mute: rgb(141, 122, 86);
+  --color-background: rgb(179, 92, 11);
 }
 
 .color-theme-1:hover {
