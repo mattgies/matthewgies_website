@@ -275,7 +275,7 @@ nav {
 }
 
 .invisible {
-  opacity: 0;
+  visibility: hidden;
 }
 
 .scroll-to-top-button {
