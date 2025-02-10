@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import VLazyImage from 'v-lazy-image';
+
 interface Image {
   key: string;
   href: string;
@@ -150,8 +152,7 @@ function openLightboxToSlide(slideNum: number) {
       }"
       @click="openLightboxToSlide(index + 1)"
     >
-      <img
-        loading="lazy"
+      <VLazyImage
         :alt="imgData.altText"
         :src="imgData.src"
         :style="{
