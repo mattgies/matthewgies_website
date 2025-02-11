@@ -92,9 +92,10 @@ html {
 }
 
 .green-theme {
-  --color-text: rgb(238, 205, 143);
-  --color-text-mute: rgb(141, 122, 86);
-  --color-background: rgb(179, 92, 11);
+  --color-text: rgb(242, 247, 240);
+  --color-text-mute: rgb(157, 184, 153);
+  --color-background: rgb(15, 20, 16);
+  --base-color-soft: rgb(29, 34, 31);
 }
 
 .color-theme-1:hover {

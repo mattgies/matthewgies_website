@@ -41,7 +41,8 @@ h1 {
   color: transparent;
   -webkit-text-fill-color: transparent;
   font-weight: 500;
-  transform: scale(1.25, 1);
+  display: table;
+  /* transform: scale(1.25, 1); */
   transform-origin: top left;
   max-width: 100%;
   /* transition: 2s; */
@@ -307,7 +308,7 @@ nav {
   fill: var(--color-background);
 }
 
-svg:hover > .svg-visible {
+svg:hover .svg-visible {
   fill: var(--color-text);
 }
 
