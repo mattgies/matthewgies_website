@@ -149,8 +149,8 @@ a {
 
 .external-profile-link {
   display: inline-block;
-  height: 2rem;
-  width: 2rem;
+  height: 100%;
+  width: 100%;
 }
 
 svg {
@@ -162,16 +162,8 @@ path {
   transition: var(--base-transition-speed);
 }
 
-.external-profile-link:first-of-type {
-  margin-left: 2.5rem;
-}
-
 .nav-elem:hover {
   color: var(--color-text);
-}
-
-.nav-elem-active {
-  color: var(--color-theme-2);
 }
 
 @keyframes flip-y-axis {
@@ -262,8 +254,6 @@ nav {
   height: calc(100vh - 7rem);
   z-index: 10;
   background: var(--color-background);
-  /* background: #000000e0; */
-  /* backdrop-filter: blur(10px); */
 }
 
 .invisible {
@@ -325,7 +315,9 @@ svg:hover .svg-visible {
   display: flex;
   flex-direction: row;
   justify-items: start;
+  align-items: center;
   margin-right: 1.5rem;
+  column-gap: 1rem;
 }
 
 .project-gallery {
@@ -482,30 +474,29 @@ svg:hover .svg-visible {
   .external-profile-link {
     width: 4rem;
     height: 4rem;
-    margin: 1rem;
+    vertical-align: middle;
   }
 
   .external-profile-link:first-of-type {
-    margin-left: 1rem;
+    margin-left: 0rem;
   }
 
   .external-profile-links-group {
     height: 7rem;
-    align-items: center;
     margin-bottom: 3rem;
+    margin-left: 2rem;
+    column-gap: 2rem;
   }
 }
 
 @media (768px <= width < 1200px) {
   .external-profile-links-group {
+    height: 2rem;
     border-left: 0.1rem solid var(--color-background-mute);
   }
 
-  .external-profile-link {
-    height: 2rem;
-    width: 2rem;
-    margin: 0.5rem;
-    vertical-align: middle;
+  .external-profile-link:first-of-type {
+    margin-left: 2.5rem;
   }
 
   .mobile-only {
@@ -523,14 +514,12 @@ svg:hover .svg-visible {
 
 @media (1200px <= width) {
   .external-profile-links-group {
+    height: 2rem;
     border-left: 0.1rem solid var(--color-background-mute);
   }
 
-  .external-profile-link {
-    height: 2rem;
-    width: 2rem;
-    margin: 0.5rem;
-    vertical-align: middle;
+  .external-profile-link:first-of-type {
+    margin-left: 2.5rem;
   }
 
   .mobile-only {

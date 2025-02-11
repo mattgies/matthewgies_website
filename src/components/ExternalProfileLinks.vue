@@ -2,11 +2,7 @@
 
 <template>
   <div class="external-profile-links-group">
-    <a
-      class="external-profile-link"
-      href="https://open.spotify.com/user/mattgies?si=046d4cdc03904e13"
-      target="_blank"
-    >
+    <a class="external-profile-link" href="https://open.spotify.com/user/mattgies" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
         <path
           class="svg-visible"
