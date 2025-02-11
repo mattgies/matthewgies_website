@@ -96,12 +96,9 @@ const projects: Project[] = [
   }
 ];
 
-// let filters = ref([]);
-// console.log(filters.value);
 let filteredProjectsList: Ref<Project[]> = ref(projects);
 let filtersShown = ref(false);
 
-// let visibleProjectTypes: Ref<Map<ProjectType, boolean>> = ref(new Map<ProjectType, boolean>());
 let visibleProjectTypes: Ref<ProjectType[]> = ref([
   ProjectType.DESIGN,
   ProjectType.GAME,
@@ -110,9 +107,6 @@ let visibleProjectTypes: Ref<ProjectType[]> = ref([
 
 function shouldIncludeProj(proj: Project) {
   for (const projType of proj.types) {
-    // if (visibleProjectTypes.value.get(projType) === true) {
-    //   return true;
-    // }
     if (visibleProjectTypes.value.includes(projType)) {
       return true;
     }
@@ -121,39 +115,20 @@ function shouldIncludeProj(proj: Project) {
 }
 
 function updateVisibleProjects(projectTypeToToggle: ProjectType) {
-  // if (visibleProjectTypes.value.get(projectTypeToToggle) === true) {
-  //   visibleProjectTypes.value.set(projectTypeToToggle, false);
-  // } else {
-  //   visibleProjectTypes.value.set(projectTypeToToggle, true);
-  // }
   const projectTypeIndex: number = visibleProjectTypes.value.indexOf(projectTypeToToggle);
   if (projectTypeIndex !== -1) {
     // projectTypeToToggle is in the visibleProjectTypes array
     visibleProjectTypes.value.splice(projectTypeIndex, 1);
   } else {
+    // not in the visibleProjectTypes array
     visibleProjectTypes.value.push(projectTypeToToggle);
   }
 
-  console.log(visibleProjectTypes.value);
-  console.log(visibleProjectTypes.value.length);
-
   filteredProjectsList.value = projects.filter((proj) => shouldIncludeProj(proj));
-  // if (visibleProjectTypes.value.length > 0) {
-  //   filteredProjectsList.value = projects.filter((proj) => shouldIncludeProj(proj));
-  // } else {
-  //   filteredProjectsList.value = projects;
-  // }
 }
 </script>
 
 <template>
-  <!-- <iframe
-    style="border: 1px solid rgba(0, 0, 0, 0.1)"
-    width="640"
-    height="450"
-    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FuFyeONSyabDq4XwUAezlRP%2FDubHacks-2021%3Fnode-id%3D0%253A1"
-    allowfullscreen
-  ></iframe> -->
   <div>
     <div class="project-filters">
       <button class="project-filters-button" @click="filtersShown = !filtersShown">
@@ -177,38 +152,6 @@ function updateVisibleProjects(projectTypeToToggle: ProjectType) {
         />
         <label for="programming">Programming</label>
       </div>
-      <!-- <button
-        @click="
-          filteredProjectsList = projects;
-          console.log(filteredProjectsList);
-        "
-      >
-        Remove filters
-      </button>
-      <button
-        @click="
-          filteredProjectsList = projects.filter((i) => i.types.includes(ProjectType.DESIGN));
-          console.log(filteredProjectsList);
-        "
-      >
-        Design only
-      </button>
-      <button
-        @click="
-          filteredProjectsList = projects.filter((i) => i.types.includes(ProjectType.GAME));
-          console.log(filteredProjectsList);
-        "
-      >
-        Game only
-      </button>
-      <button
-        @click="
-          filteredProjectsList = projects.filter((i) => i.types.includes(ProjectType.PROGRAMMING));
-          console.log(filteredProjectsList);
-        "
-      >
-        Programming only
-      </button> -->
     </div>
     <div class="project-gallery">
       <TransitionGroup name="fade">

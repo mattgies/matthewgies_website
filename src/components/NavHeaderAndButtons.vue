@@ -13,7 +13,6 @@ let activePage: Ref<string> = ref(window.location.pathname.split('/').pop()!);
 let hamburgerMenuExpanded: Ref<boolean> = ref(false);
 
 const handleMobileNavOpenClose = () => {
-  console.log(hamburgerMenuExpanded);
   hamburgerMenuExpanded.value = !hamburgerMenuExpanded.value;
   window.scrollTo({ top: 0, behavior: 'smooth' });
   document.body.style.overflow = hamburgerMenuExpanded.value ? 'hidden' : '';
@@ -28,7 +27,10 @@ addEventListener('resize', () => {
 <template>
   <header>
     <RouterLink
-      @click="activePage = 'home'"
+      @click="
+        activePage = 'home';
+        hamburgerMenuExpanded = false;
+      "
       to="/"
       :class="['nav-logo', 'nav-elem', activePage == 'home' ? 'nav-elem-active' : '']"
     >
