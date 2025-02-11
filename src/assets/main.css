@@ -330,6 +330,33 @@ svg:hover .svg-visible {
   width: calc(100vw - 2rem);
 }
 
+.project-filters {
+  width: calc(100vw - 2rem);
+  margin: auto;
+}
+
+.project-filters-button {
+  right: 0;
+}
+
+/* input[type='checkbox'] {
+  accent-color: black;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type='checkbox']:before {
+  content: '';
+  padding: 1rem;
+  background-color: blue;
+  transition: 2s;
+  margin-right: 0.5rem;
+}
+
+input[type='checkbox']:checked:before {
+  background-color: orange;
+} */
+
 .project-card {
   width: 100%;
   box-sizing: border-box;
@@ -467,6 +494,10 @@ svg:hover .svg-visible {
     width: max(20rem, 100vw - 2rem);
   }
 
+  .project-filters {
+    width: max(20rem, 100vw - 2rem);
+  }
+
   #photo-gallery {
     width: 95%;
   }
@@ -507,6 +538,10 @@ svg:hover .svg-visible {
     width: 80%;
   }
 
+  .project-filters {
+    width: 80%;
+  }
+
   #photo-gallery {
     min-width: 729px;
   }
@@ -531,5 +566,9 @@ svg:hover .svg-visible {
     grid-template-columns: 32% 32% 32%;
     column-gap: 2%;
     row-gap: 5%;
+  }
+
+  .project-filters {
+    width: 80%;
   }
 }

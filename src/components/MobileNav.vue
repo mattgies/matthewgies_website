@@ -8,7 +8,7 @@ defineProps<{ pages: string[]; activePage: string }>();
   <nav class="mobile-nav-menu-expanded mobile-only">
     <div class="mobile-nav-menu-router-links">
       <RouterLink
-        v-for="(page, i) of pages"
+        v-for="page of pages"
         :key="page"
         :to="page == 'home' ? '/' : '/' + page"
         @click="$emit('page-selected', page)"

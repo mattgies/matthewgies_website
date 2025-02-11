@@ -32,7 +32,6 @@ const changeTheme = () => {
 </script>
 
 <template>
-  <!-- <NewImageGallery></NewImageGallery> -->
   <div style="width: 80%; margin: auto">
     <button @click="changeTheme()">Change to green theme.</button>
     <h1 id="my-test-h1" class="other test-flip-animation">I am an h1 tag.</h1>

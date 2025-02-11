@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { type Ref } from 'vue';
 import ProjectCard from '@/components/ProjectCard.vue';
 defineProps<{
   text: string;
@@ -97,9 +98,52 @@ const projects: Project[] = [
 
 // let filters = ref([]);
 // console.log(filters.value);
-let filteredProjectsList = ref(projects);
+let filteredProjectsList: Ref<Project[]> = ref(projects);
 let filtersShown = ref(false);
-let visibleProjectTypes: ProjectType[] = ref([]);
+
+// let visibleProjectTypes: Ref<Map<ProjectType, boolean>> = ref(new Map<ProjectType, boolean>());
+let visibleProjectTypes: Ref<ProjectType[]> = ref([
+  ProjectType.DESIGN,
+  ProjectType.GAME,
+  ProjectType.PROGRAMMING
+]);
+
+function shouldIncludeProj(proj: Project) {
+  for (const projType of proj.types) {
+    // if (visibleProjectTypes.value.get(projType) === true) {
+    //   return true;
+    // }
+    if (visibleProjectTypes.value.includes(projType)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function updateVisibleProjects(projectTypeToToggle: ProjectType) {
+  // if (visibleProjectTypes.value.get(projectTypeToToggle) === true) {
+  //   visibleProjectTypes.value.set(projectTypeToToggle, false);
+  // } else {
+  //   visibleProjectTypes.value.set(projectTypeToToggle, true);
+  // }
+  const projectTypeIndex: number = visibleProjectTypes.value.indexOf(projectTypeToToggle);
+  if (projectTypeIndex !== -1) {
+    // projectTypeToToggle is in the visibleProjectTypes array
+    visibleProjectTypes.value.splice(projectTypeIndex, 1);
+  } else {
+    visibleProjectTypes.value.push(projectTypeToToggle);
+  }
+
+  console.log(visibleProjectTypes.value);
+  console.log(visibleProjectTypes.value.length);
+
+  filteredProjectsList.value = projects.filter((proj) => shouldIncludeProj(proj));
+  // if (visibleProjectTypes.value.length > 0) {
+  //   filteredProjectsList.value = projects.filter((proj) => shouldIncludeProj(proj));
+  // } else {
+  //   filteredProjectsList.value = projects;
+  // }
+}
 </script>
 
 <template>
@@ -111,23 +155,29 @@ let visibleProjectTypes: ProjectType[] = ref([]);
     allowfullscreen
   ></iframe> -->
   <div>
-    <button @click="filtersShown = !filtersShown">Show Project Filters</button>
-    <div v-show="filtersShown">
-      <input
-        type="checkbox"
-        id="design-only"
-        value="DESIGN"
-        @click="
-          filters.push(ProjectType.DESIGN);
-          console.log(filters);
-        "
-      />
-      <label for="design-only">Design only</label>
-      <input type="checkbox" id="game-only" value="GAME" />
-      <label for="game-only">Game only</label>
-      <input type="checkbox" id="programming-only" value="PROGRAMMING" />
-      <label for="programming-only">Programming only</label>
-      <button
+    <div class="project-filters">
+      <button class="project-filters-button" @click="filtersShown = !filtersShown">
+        Show Project Filters
+      </button>
+      <div v-show="filtersShown">
+        <input
+          type="checkbox"
+          id="design"
+          @click="updateVisibleProjects(ProjectType.DESIGN)"
+          checked
+        />
+        <label for="design">Design</label>
+        <input type="checkbox" id="game" @click="updateVisibleProjects(ProjectType.GAME)" checked />
+        <label for="game">Video Game</label>
+        <input
+          type="checkbox"
+          id="programming"
+          @click="updateVisibleProjects(ProjectType.PROGRAMMING)"
+          checked
+        />
+        <label for="programming">Programming</label>
+      </div>
+      <!-- <button
         @click="
           filteredProjectsList = projects;
           console.log(filteredProjectsList);
@@ -158,7 +208,7 @@ let visibleProjectTypes: ProjectType[] = ref([]);
         "
       >
         Programming only
-      </button>
+      </button> -->
     </div>
     <div class="project-gallery">
       <TransitionGroup name="fade">
