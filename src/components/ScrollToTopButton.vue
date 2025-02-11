@@ -26,6 +26,6 @@ function scrollToTop() {
 
 <template>
   <button class="scroll-to-top-button invisible" ref="scrollToTopButton" @click="scrollToTop">
-    ⬆️
+    scroll UP
   </button>
 </template>

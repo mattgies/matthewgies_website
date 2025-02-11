@@ -35,7 +35,7 @@ button {
 
 h1 {
   font-size: max(2rem, min(1.5vw + 1rem, 3rem));
-  background: var(--linear-grad-light-blue);
+  background: var(--linear-grad-theme-1);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -147,11 +147,15 @@ a {
   margin-right: 2.5rem;
 }
 
-.external-profile-link,
-svg {
+.external-profile-link {
   display: inline-block;
   height: 2rem;
   width: 2rem;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
 }
 
 path {
@@ -198,8 +202,7 @@ path {
 .nav-logo {
   height: 3.5rem;
   width: 3.5rem;
-  margin: 0.5rem;
-  margin-top: 1rem;
+  margin-left: 1.5rem;
   /* animation: flip-y-axis 3s ease-in-out alternate infinite both; */
 }
 
@@ -269,18 +272,19 @@ nav {
 
 .scroll-to-top-button {
   position: fixed;
-  right: 1rem;
-  bottom: 1rem;
+  right: 2rem;
+  bottom: 4rem;
   z-index: 10;
-  height: 4rem;
-  width: 4rem;
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
 }
 
 .mobile-nav-elem {
   font-size: 3rem;
   transition: var(--base-transition-speed);
   margin: 2rem;
-  /* color: var(--color-text-mute); */
+  color: var(--color-text-mute);
 }
 
 .mobile-nav-elem:hover {
@@ -457,10 +461,6 @@ svg:hover .svg-visible {
 
 /* On mobile devices */
 @media (width < 768px) {
-  /* .nav-elem {
-    display: none;
-  } */
-
   nav {
     justify-content: space-between;
   }
@@ -479,8 +479,7 @@ svg:hover .svg-visible {
     width: 95%;
   }
 
-  .external-profile-link,
-  svg {
+  .external-profile-link {
     width: 4rem;
     height: 4rem;
     margin: 1rem;

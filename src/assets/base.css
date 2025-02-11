@@ -28,9 +28,11 @@ html {
   --vt-c-text-dark-2: rgba(235, 235, 235, 1);
   --vt-c-text-dark-3: rgb(201, 201, 201);
 
-  --linear-grad-green: linear-gradient(90deg, #14d963, #b9fd9e);
+  --linear-grad-green: linear-gradient(90deg, #0ec356, #b9fd9e);
   --linear-grad-light-blue: linear-gradient(90deg, #2f88ec, #99cbf4);
   --linear-grad-orange: linear-gradient(90deg, #fc7c19, #ffd375);
+
+  --linear-grad-theme-1: var(--linear-grad-light-blue);
 }
 
 /* semantic color variables for this project */
@@ -93,9 +95,10 @@ html {
 
 .green-theme {
   --color-text: rgb(242, 247, 240);
-  --color-text-mute: rgb(157, 184, 153);
-  --color-background: rgb(15, 20, 16);
+  --color-text-mute: rgb(172, 182, 170);
+  --color-background: rgb(7, 8, 7);
   --base-color-soft: rgb(29, 34, 31);
+  --linear-grad-theme-1: var(--linear-grad-green);
 }
 
 .color-theme-1:hover {
