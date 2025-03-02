@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { type Ref } from 'vue';
+import { usePreferredDark } from '@vueuse/core';
 import MobileNav from './MobileNav.vue';
 import ExternalProfileLinks from './ExternalProfileLinks.vue';
 
-defineProps<{
+const props = defineProps<{
   pages: string[];
 }>();
 
@@ -22,6 +23,26 @@ addEventListener('resize', () => {
   hamburgerMenuExpanded.value = false;
   document.body.style.overflow = '';
 });
+
+const darkModePreferred = usePreferredDark();
+onMounted(() => {
+  if (darkModePreferred.value === true) {
+    changeTheme();
+  }
+});
+
+const changeTheme = () => {
+  const darkModeInput = document.getElementById('dark-mode-input')!;
+  console.log(darkModeInput);
+  const currentClasses = document.querySelector(':root')?.classList!;
+  if (currentClasses.contains('dark-theme')) {
+    darkModeInput.style.transform = '';
+    currentClasses.remove('dark-theme');
+  } else {
+    darkModeInput.style.transform = 'translateX(2rem)';
+    currentClasses.add('dark-theme');
+  }
+};
 </script>
 
 <template>
@@ -70,6 +91,12 @@ addEventListener('resize', () => {
       >
         {{ page == 'home' ? '' : page.charAt(0).toUpperCase() + page.slice(1) }}
       </RouterLink>
+      <div id="dark-mode-switch-container">
+        <div id="dark-mode-switch" @click="changeTheme()">
+          <div id="dark-mode-input"></div>
+          <span class="slider"></span>
+        </div>
+      </div>
       <ExternalProfileLinks />
     </nav>
     <button
@@ -94,3 +121,46 @@ addEventListener('resize', () => {
     />
   </Transition>
 </template>
+
+<style scoped>
+input[type='checkbox']:checked {
+  transform: translateX(2rem);
+}
+
+#dark-mode-input {
+  height: 2rem;
+  width: 2rem;
+  transition: all calc(var(--base-transition-speed) * 2);
+  background-color: var(--color-theme-3);
+  z-index: 10;
+  border-radius: 1rem;
+}
+
+input[type='checkbox'] {
+  height: 2rem;
+  width: 2rem;
+  transition: all calc(var(--base-transition-speed) * 2);
+  border: solid 2rem black;
+  border-radius: 50%;
+}
+
+#dark-mode-switch {
+  height: 3rem;
+  width: 5rem;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  background-color: var(--color-theme-1);
+  margin: auto;
+}
+
+#dark-mode-switch-container {
+  width: 7rem;
+  border-left: 0.1rem solid var(--color-background-mute);
+  border-right: 0.1rem solid var(--color-background-mute);
+}
+
+input[type='checkbox']:hover,
+#dark-mode-switch:hover {
+  cursor: pointer;
+}
+</style>

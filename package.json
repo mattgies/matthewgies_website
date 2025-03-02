@@ -14,6 +14,7 @@
     "build-and-deploy": "vite build && wrangler pages deploy dist"
   },
   "dependencies": {
+    "@vueuse/core": "^12.7.0",
     "animejs": "^3.2.2",
     "fslightbox-vue": "^2.1.3",
     "gsap": "^3.12.5",

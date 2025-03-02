@@ -152,7 +152,7 @@ function openLightboxToSlide(slideNum: number) {
       }"
       @click="openLightboxToSlide(index + 1)"
     >
-      <VLazyImage
+      <img
         :alt="imgData.altText"
         :src="imgData.src"
         :style="{
@@ -162,3 +162,9 @@ function openLightboxToSlide(slideNum: number) {
     </a>
   </div>
 </template>
+
+<style scoped>
+.invisible {
+  opacity: 0;
+}
+</style>

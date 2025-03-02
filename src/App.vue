@@ -13,18 +13,6 @@ for (let i = 0; i < 5; i++) {
   nums.push((Math.random() + 1) * 5);
   nums.push((Math.random() + 2) * 3);
 }
-
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  document.querySelector(':root')?.classList.add('green-theme');
-}
-
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-  if (event.matches) {
-    document.querySelector(':root')?.classList.add('green-theme');
-  } else {
-    document.querySelector(':root')?.classList.remove('green-theme');
-  }
-});
 </script>
 
 <template>

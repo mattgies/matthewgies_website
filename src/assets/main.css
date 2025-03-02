@@ -95,7 +95,7 @@ h1 {
 .gallery-image {
   box-sizing: border-box;
   transition: all var(--base-transition-speed);
-  transition: opacity calc(var(--base-transition-speed) * 4);
+  transition: opacity calc(var(--base-transition-speed) * 2) ease-out;
 }
 
 .gallery-image:hover {
@@ -339,24 +339,6 @@ svg:hover .svg-visible {
   right: 0;
 }
 
-/* input[type='checkbox'] {
-  accent-color: black;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-input[type='checkbox']:before {
-  content: '';
-  padding: 1rem;
-  background-color: blue;
-  transition: 2s;
-  margin-right: 0.5rem;
-}
-
-input[type='checkbox']:checked:before {
-  background-color: orange;
-} */
-
 .project-card {
   width: 100%;
   box-sizing: border-box;
@@ -385,6 +367,7 @@ input[type='checkbox']:checked:before {
   /* border: 0.1rem solid black; */
   box-sizing: border-box;
   margin-bottom: 0.5rem;
+  aspect-ratio: 1.8;
 }
 
 .project-card-title {
@@ -396,6 +379,7 @@ input[type='checkbox']:checked:before {
 
 .project-card-subtitle {
   font-size: 1.75rem;
+  text-overflow: clip;
 }
 
 .fade-enter-from,
@@ -449,35 +433,6 @@ input[type='checkbox']:checked:before {
   transform: translate(100%, 0);
 }
 
-/* .fslightbox-slide-btn:before {
-  content: 'nex';
-} */
-
-/* 
-.NEW-photo-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  max-width: 80%;
-  margin: auto;
-}
-
-.NEW-gallery-image {
-  max-height: 15rem;
-  margin: 0.5rem;
-  object-fit: cover;
-}
-
-.photo-gallery-row {
-  margin: auto;
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-} */
-
 /* On mobile devices */
 @media (width < 768px) {
   nav {
@@ -523,7 +478,7 @@ input[type='checkbox']:checked:before {
 @media (768px <= width < 1200px) {
   .external-profile-links-group {
     height: 2rem;
-    border-left: 0.1rem solid var(--color-background-mute);
+    /* border-left: 0.1rem solid var(--color-background-mute); */
   }
 
   .external-profile-link:first-of-type {
@@ -550,7 +505,7 @@ input[type='checkbox']:checked:before {
 @media (1200px <= width) {
   .external-profile-links-group {
     height: 2rem;
-    border-left: 0.1rem solid var(--color-background-mute);
+    /* border-left: 0.1rem solid var(--color-background-mute); */
   }
 
   .external-profile-link:first-of-type {
