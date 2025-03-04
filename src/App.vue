@@ -2,6 +2,7 @@
 import { RouterView } from 'vue-router';
 import ScrollToTopButton from './components/ScrollToTopButton.vue';
 import NavHeaderAndButtons from './components/NavHeaderAndButtons.vue';
+import SvgLinearGradients from './components/SvgLinearGradients.vue';
 
 const pages: string[] = ['home', 'projects', 'photography', 'about'];
 
@@ -45,4 +46,6 @@ for (let i = 0; i < 5; i++) {
       </Transition>
     </RouterView>
   </main>
+
+  <SvgLinearGradients />
 </template>

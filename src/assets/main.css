@@ -227,7 +227,7 @@ header {
   justify-content: space-between;
   align-items: center;
   font-size: 1.75rem;
-  background-color: var(--color-background);
+  background-color: var(--color-nav-header);
   margin-bottom: 2rem;
   z-index: 10;
   height: 7rem;
@@ -296,6 +296,9 @@ nav {
 
 .svg-visible {
   fill: var(--color-text-mute);
+  transition: all 1s ease;
+  fill: url(#grad-test);
+  color: url(#grad-test);
 }
 
 .svg-cut-out {
@@ -321,10 +324,11 @@ svg:hover .svg-visible {
 }
 
 .project-gallery {
+  transition: all 1s;
   display: grid;
   grid-template-columns: 49% 49%;
   column-gap: 2%;
-  row-gap: 2%;
+  row-gap: 1rem;
   margin: auto;
   margin-top: 2rem;
   width: calc(100vw - 2rem);
@@ -333,10 +337,10 @@ svg:hover .svg-visible {
 .project-filters {
   width: calc(100vw - 2rem);
   margin: auto;
-}
-
-.project-filters-button {
-  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 1rem;
 }
 
 .project-card {
@@ -379,7 +383,10 @@ svg:hover .svg-visible {
 
 .project-card-subtitle {
   font-size: 1.75rem;
-  text-overflow: clip;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inherit;
 }
 
 .fade-enter-from,
@@ -393,12 +400,12 @@ svg:hover .svg-visible {
 }
 
 .fade-enter-active {
-  transition: all calc(var(--base-transition-speed) * 1) ease;
-  transition-delay: calc(var(--base-transition-speed) * 1);
+  transition: all calc(var(--base-transition-speed) * 2) ease;
+  transition-delay: calc(var(--base-transition-speed) * 2);
 }
 
 .fade-leave-active {
-  transition: all calc(var(--base-transition-speed) * 1) ease;
+  transition: all calc(var(--base-transition-speed) * 2) ease;
 }
 
 .slide-enter-from {
@@ -450,7 +457,11 @@ svg:hover .svg-visible {
   }
 
   .project-filters {
-    width: max(20rem, 100vw - 2rem);
+    /* width: max(20rem, 100vw - 2rem); */
+    margin-left: 1rem;
+    align-items: left;
+    flex-direction: column;
+    /* width: 15rem; */
   }
 
   #photo-gallery {
@@ -520,7 +531,7 @@ svg:hover .svg-visible {
     width: 80%;
     grid-template-columns: 32% 32% 32%;
     column-gap: 2%;
-    row-gap: 5%;
+    row-gap: 1rem;
   }
 
   .project-filters {

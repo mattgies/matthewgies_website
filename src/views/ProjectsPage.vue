@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { type Ref } from 'vue';
 import ProjectCard from '@/components/ProjectCard.vue';
+import ProjectFilterButton from '@/components/ProjectFilterButton.vue';
 defineProps<{
   text: string;
 }>();
@@ -33,7 +34,7 @@ const projects: Project[] = [
   {
     title: '404: Producer Not Found',
     titleGradient: 'light-blue',
-    subtitle: 'Mystery Game made in UE4',
+    subtitle: 'Mystery Game made in UE5',
     coverImgSrc: 'img/project_thumbnails/404_prod_not_found.jpg',
     types: [ProjectType.DESIGN, ProjectType.GAME],
     projectLink: 'https://saffrona.itch.io/404-producer-not-found'
@@ -115,6 +116,7 @@ function shouldIncludeProj(proj: Project) {
 }
 
 function updateVisibleProjects(projectTypeToToggle: ProjectType) {
+  console.log('updating visible projects');
   const projectTypeIndex: number = visibleProjectTypes.value.indexOf(projectTypeToToggle);
   if (projectTypeIndex !== -1) {
     // projectTypeToToggle is in the visibleProjectTypes array
@@ -125,47 +127,53 @@ function updateVisibleProjects(projectTypeToToggle: ProjectType) {
   }
 
   filteredProjectsList.value = projects.filter((proj) => shouldIncludeProj(proj));
+  // if (visibleProjectTypes.value.length === 0) {
+  //   filteredProjectsList.value = projects;
+  // } else {
+  //   filteredProjectsList.value = projects.filter((proj) => shouldIncludeProj(proj));
+  // }
 }
 </script>
 
 <template>
   <div>
     <div class="project-filters">
-      <button class="project-filters-button" @click="filtersShown = !filtersShown">
-        Show Project Filters
-      </button>
-      <div v-show="filtersShown">
-        <input
-          type="checkbox"
-          id="design"
-          @click="updateVisibleProjects(ProjectType.DESIGN)"
-          checked
-        />
-        <label for="design">Design</label>
-        <input type="checkbox" id="game" @click="updateVisibleProjects(ProjectType.GAME)" checked />
-        <label for="game">Video Game</label>
-        <input
-          type="checkbox"
-          id="programming"
-          @click="updateVisibleProjects(ProjectType.PROGRAMMING)"
-          checked
-        />
-        <label for="programming">Programming</label>
+      <ProjectFilterButton
+        @click="updateVisibleProjects(ProjectType.PROGRAMMING)"
+        filterName="Programming"
+      />
+
+      <ProjectFilterButton @click="updateVisibleProjects(ProjectType.DESIGN)" filterName="Design" />
+
+      <ProjectFilterButton
+        @click="updateVisibleProjects(ProjectType.GAME)"
+        filterName="Video Game"
+      />
+    </div>
+    <Transition name="fade">
+      <p v-if="filteredProjectsList.length === 0">No projects found for the given filters :(</p>
+    </Transition>
+    <Transition name="fade">
+      <div v-if="filteredProjectsList.length > 0" class="project-gallery">
+        <TransitionGroup name="fade">
+          <ProjectCard
+            v-for="(proj, index) in filteredProjectsList"
+            :titleGradient="proj.titleGradient"
+            :key="proj.title + index.toString()"
+            :title="proj.title"
+            :subtitle="proj.subtitle"
+            :coverImgSrc="proj.coverImgSrc"
+            :href="proj.projectLink"
+            :target="proj.projectLink.startsWith('./') ? '' : '_blank'"
+          />
+        </TransitionGroup>
       </div>
-    </div>
-    <div class="project-gallery">
-      <TransitionGroup name="fade">
-        <ProjectCard
-          v-for="(proj, index) in filteredProjectsList"
-          :titleGradient="proj.titleGradient"
-          :key="proj.title + index.toString()"
-          :title="proj.title"
-          :subtitle="proj.subtitle"
-          :coverImgSrc="proj.coverImgSrc"
-          :href="proj.projectLink"
-          :target="proj.projectLink.startsWith('./') ? '' : '_blank'"
-        />
-      </TransitionGroup>
-    </div>
+    </Transition>
   </div>
 </template>
+
+<style scoped>
+.btn-selected {
+  background-color: green;
+}
+</style>

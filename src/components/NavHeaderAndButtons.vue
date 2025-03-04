@@ -25,9 +25,12 @@ addEventListener('resize', () => {
 });
 
 const darkModePreferred = usePreferredDark();
+const colorTheme = ref('light');
+
 onMounted(() => {
   if (darkModePreferred.value === true) {
     changeTheme();
+    // colorTheme.value = 'dark';
   }
 });
 
@@ -37,10 +40,12 @@ const changeTheme = () => {
   const currentClasses = document.querySelector(':root')?.classList!;
   if (currentClasses.contains('dark-theme')) {
     darkModeInput.style.transform = '';
+    darkModeInput.style.backgroundColor = 'white';
     currentClasses.remove('dark-theme');
   } else {
     darkModeInput.style.transform = 'translateX(2rem)';
     currentClasses.add('dark-theme');
+    darkModeInput.style.backgroundColor = 'black';
   }
 };
 </script>
@@ -123,33 +128,22 @@ const changeTheme = () => {
 </template>
 
 <style scoped>
-input[type='checkbox']:checked {
-  transform: translateX(2rem);
-}
-
 #dark-mode-input {
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   transition: all calc(var(--base-transition-speed) * 2);
   background-color: var(--color-theme-3);
   z-index: 10;
-  border-radius: 1rem;
-}
-
-input[type='checkbox'] {
-  height: 2rem;
-  width: 2rem;
-  transition: all calc(var(--base-transition-speed) * 2);
-  border: solid 2rem black;
-  border-radius: 50%;
+  border-radius: 0.75rem;
+  border: 0.1rem solid var(--color-background-mute);
 }
 
 #dark-mode-switch {
-  height: 3rem;
-  width: 5rem;
-  padding: 0.5rem;
-  border-radius: 1.5rem;
-  background-color: var(--color-theme-1);
+  height: 2rem;
+  width: 4rem;
+  padding: 0.25rem;
+  border-radius: 1rem;
+  background-color: var(--color-background-mute);
   margin: auto;
 }
 
@@ -159,7 +153,6 @@ input[type='checkbox'] {
   border-right: 0.1rem solid var(--color-background-mute);
 }
 
-input[type='checkbox']:hover,
 #dark-mode-switch:hover {
   cursor: pointer;
 }
