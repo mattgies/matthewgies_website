@@ -35,30 +35,36 @@ onMounted(() => {
 });
 
 const changeTheme = () => {
+  const darkModeSwitch = document.getElementById('dark-mode-switch')!;
   const darkModeInput = document.getElementById('dark-mode-input')!;
   console.log(darkModeInput);
   const currentClasses = document.querySelector(':root')?.classList!;
   if (currentClasses.contains('dark-theme')) {
     darkModeInput.style.transform = '';
+    // darkModeSwitch.style.justifyContent = 'left';
     darkModeInput.style.backgroundColor = 'white';
     currentClasses.remove('dark-theme');
   } else {
     darkModeInput.style.transform = 'translateX(2rem)';
-    currentClasses.add('dark-theme');
+    // darkModeSwitch.style.justifyContent = 'right';
     darkModeInput.style.backgroundColor = 'black';
+    currentClasses.add('dark-theme');
   }
 };
 </script>
 
+<!-- for the first router link: -->
+<!-- :class="['nav-logo', 'nav-elem', activePage == 'home' ? 'nav-elem-active' : '']" -->
 <template>
   <header>
     <RouterLink
       @click="
-        activePage = 'home';
+        // activePage = 'home';
+        activePage = 'about';
         hamburgerMenuExpanded = false;
       "
       to="/"
-      :class="['nav-logo', 'nav-elem', activePage == 'home' ? 'nav-elem-active' : '']"
+      :class="['nav-logo', 'nav-elem', activePage == 'about' ? 'nav-elem-active' : '']"
     >
       <svg
         id="svg"
@@ -129,19 +135,23 @@ const changeTheme = () => {
 
 <style scoped>
 #dark-mode-input {
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.3rem;
+  width: 1.3rem;
   transition: all calc(var(--base-transition-speed) * 2);
   background-color: var(--color-theme-3);
   z-index: 10;
   border-radius: 0.75rem;
-  border: 0.1rem solid var(--color-background-mute);
+  /* border: 0.1rem solid var(--color-background-mute); */
 }
 
 #dark-mode-switch {
+  display: flex;
+  justify-content: left;
+  align-items: center;
   height: 2rem;
   width: 4rem;
   padding: 0.25rem;
+  border: 0.1rem solid var(--color-border);
   border-radius: 1rem;
   background-color: var(--color-background-mute);
   margin: auto;

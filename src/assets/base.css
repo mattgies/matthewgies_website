@@ -118,6 +118,36 @@ html {
   --color-nav-header: var(--vt-c-black);
 }
 
+:root {
+  --color-bg-medium: #e1e1e1;
+  --color-bg-deep: #f7f7f7;
+  --color-border: #e9c46a;
+  --color-text: #ccb098;
+  --color-text-bright: #e76f51;
+
+  --linear-grad-theme-1: linear-gradient(90deg, #199aba, #34b834);
+}
+
+.dark-theme {
+  --color-bg-medium: #2a9d8f;
+  --color-bg-deep: #264653;
+  --color-border: #e9c46a;
+  --color-text: #e76f51;
+  --color-text-bright: #f4a261;
+
+  --linear-grad-theme-1: linear-gradient(90deg, #ffffff, #000000);
+}
+
+.dark-theme {
+  --color-bg-medium: #121821;
+  --color-bg-deep: #0b0b11;
+  --color-border: #686f6e;
+  --color-text: #b2c9ab;
+  --color-text-bright: #e8ddb5;
+
+  --linear-grad-theme-1: linear-gradient(90deg, #df6942, #ecbc6a);
+}
+
 .color-theme-1:hover {
   color: var(--color-theme-1);
 }

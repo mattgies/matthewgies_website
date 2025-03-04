@@ -7,10 +7,15 @@ import PhotographyPage from '@/views/PhotographyPage.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'home',
+    //   component: HomeView
+    // },
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'about-duped-on-home',
+      component: AboutPage
     },
     {
       path: '/projects',

@@ -151,7 +151,29 @@ function updateVisibleProjects(projectTypeToToggle: ProjectType) {
       />
     </div>
     <Transition name="fade">
-      <p v-if="filteredProjectsList.length === 0">No projects found for the given filters :(</p>
+      <div
+        v-if="filteredProjectsList.length === 0"
+        style="display: flex; flex-direction: column; align-items: center"
+      >
+        <svg
+          style="width: 5rem; height: 5rem; position: absolute; margin-top: 20vh"
+          width="256"
+          height="256"
+          viewBox="0 0 256 256"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M49.3561 71.4915C65.232 71.4915 78.1019 58.6216 78.1019 42.7458C78.1019 26.8699 65.232 14 49.3561 14C33.4803 14 20.6104 26.8699 20.6104 42.7458C20.6104 58.6216 33.4803 71.4915 49.3561 71.4915ZM43.39 195.153H212.61C212.61 152.618 174.729 118.136 128 118.136C81.2712 118.136 43.39 152.618 43.39 195.153ZM256 195.153V242.882H0V195.153C0 130.451 57.3076 78.0004 128 78.0004C198.692 78.0004 256 130.451 256 195.153ZM234.305 42.7458C234.305 58.6216 221.435 71.4915 205.559 71.4915C189.683 71.4915 176.813 58.6216 176.813 42.7458C176.813 26.8699 189.683 14 205.559 14C221.435 14 234.305 26.8699 234.305 42.7458Z"
+            fill="var(--color-text)"
+          />
+        </svg>
+        <p style="text-align: center; position: absolute; margin-top: 28vh">
+          No projects found for the given filters
+        </p>
+      </div>
     </Transition>
     <Transition name="fade">
       <div v-if="filteredProjectsList.length > 0" class="project-gallery">

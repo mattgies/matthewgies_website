@@ -12,7 +12,11 @@ const isSelected: Ref<boolean> = ref(true);
 <template>
   <button
     @click="isSelected = !isSelected"
-    :style="isSelected ? 'background: var(--color-theme-2)' : ''"
+    :style="
+      isSelected
+        ? 'background: var(--color-text-bright); color: var(--color-bg-medium)'
+        : 'background: var(--color-bg); color: var(--color-text)'
+    "
     style="
       display: flex;
       width: auto;
@@ -34,12 +38,12 @@ const isSelected: Ref<boolean> = ref(true);
     >
       <path
         d="M232.51 24L24.0002 232.51"
-        :stroke="isSelected ? 'black' : 'white'"
+        :stroke="isSelected ? 'var(--color-bg-medium)' : 'var(--color-text)'"
         stroke-width="69.5652"
       />
       <path
         d="M232.51 232.51L24.0002 24.0002"
-        :stroke="isSelected ? 'black' : 'white'"
+        :stroke="isSelected ? 'var(--color-bg-medium)' : 'var(--color-text)'"
         stroke-width="69.5652"
       />
     </svg>
