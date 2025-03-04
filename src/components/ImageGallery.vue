@@ -152,7 +152,7 @@ function openLightboxToSlide(slideNum: number) {
       }"
       @click="openLightboxToSlide(index + 1)"
     >
-      <img
+      <VLazyImage
         :alt="imgData.altText"
         :src="imgData.src"
         :style="{
