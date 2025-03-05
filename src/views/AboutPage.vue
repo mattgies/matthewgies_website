@@ -11,31 +11,29 @@
     "
   >
     <img
-      style="width: min(90vw, 30rem); margin: auto; border-radius: 50%"
+      style="width: min(90vw, 30rem); margin: auto; border-radius: 50%; margin-bottom: 2rem"
       src="@/assets/img/mg_headshot.jpg"
     />
     <div class="about-body">
       <h1>Hey, I'm Matt!</h1>
       <h2>I'm deeply curious about how the world works.</h2>
-      <h2>I'm passionate about creating experiences that are accessible to all people.</h2>
-      <!-- <h2>
-        I'm passionate about using technology to fight for justice
-        disabilities.
-      </h2> -->
-      <!-- <p>
-        The explosion of the internet has created a global ecosystem where everyone has the chance
-        to be heard. With such a massive potential stage, I believe it's important for everyone to
-        stay engaged and uplift others. Everything is political
-      </p> -->
-      <h2>I love to create experiences for others</h2>
-      <!-- <p>My favorite gift to give people is experiences. I love to create</p> -->
-      <!-- <h2>I want to live a life</h2> -->
+      <p>
+        I get bored sitting in one discipline. The intersection of art, technology, and science is
+        what stimulates me, and my skills in each aspect make me better in all the others.
+      </p>
+      <h2>I'm passionate about creating accessible experiences.</h2>
+      <p>
+        We have a duty to make sure that all people are equally able to leverage technological
+        advancements and appreciate artisitc beauty.
+      </p>
     </div>
   </div>
 </template>
 
 <style scoped>
 .about-body {
-  width: 80%;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  max-width: 100rem;
 }
 </style>

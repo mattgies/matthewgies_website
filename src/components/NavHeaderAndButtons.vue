@@ -42,12 +42,10 @@ const changeTheme = () => {
   if (currentClasses.contains('dark-theme')) {
     darkModeInput.style.transform = '';
     // darkModeSwitch.style.justifyContent = 'left';
-    darkModeInput.style.backgroundColor = 'white';
     currentClasses.remove('dark-theme');
   } else {
     darkModeInput.style.transform = 'translateX(2rem)';
     // darkModeSwitch.style.justifyContent = 'right';
-    darkModeInput.style.backgroundColor = 'black';
     currentClasses.add('dark-theme');
   }
 };
@@ -138,9 +136,9 @@ const changeTheme = () => {
   height: 1.3rem;
   width: 1.3rem;
   transition: all calc(var(--base-transition-speed) * 2);
-  background-color: var(--color-theme-3);
   z-index: 10;
   border-radius: 0.75rem;
+  background: var(--linear-grad-theme-1);
   /* border: 0.1rem solid var(--color-background-mute); */
 }
 
@@ -159,8 +157,8 @@ const changeTheme = () => {
 
 #dark-mode-switch-container {
   width: 7rem;
-  border-left: 0.1rem solid var(--color-background-mute);
-  border-right: 0.1rem solid var(--color-background-mute);
+  border-left: 0.1rem solid var(--color-bg-soft);
+  border-right: 0.1rem solid var(--color-bg-soft);
 }
 
 #dark-mode-switch:hover {

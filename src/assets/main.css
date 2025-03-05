@@ -10,7 +10,7 @@
   font-family: 'Rowdies';
   margin: 0;
   padding: 0;
-  color: var(--color-text);
+  color: var(--color-text-basic);
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 
 button {
   /* background-color: var(--color-background-soft); */
-  background-color: var(--color-bg-medium);
+  background-color: var(--color-bg-deep);
   /* border: 0.1rem solid var(--color-text); */
   border: 0.1rem solid var(--color-border);
   height: 4rem;
@@ -34,7 +34,7 @@ button {
 }
 
 h1 {
-  font-size: max(2rem, min(1.5vw + 1rem, 3rem));
+  font-size: max(2.5rem, min(1.5vw + 1rem, 4rem));
   background: var(--linear-grad-theme-1);
   background-clip: text;
   -webkit-background-clip: text;
@@ -83,6 +83,15 @@ img {
 
 a {
   text-decoration: none;
+}
+
+p {
+  color: var(--color-text-soft);
+}
+
+h2 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 @keyframes logo-bounce {
@@ -216,7 +225,7 @@ nav {
   height: calc(100vh - 7rem);
   z-index: 10;
   /* background: var(--color-background); */
-  background: var(--color-bg-medium);
+  background: var(--color-bg-deep);
 }
 
 .invisible {
@@ -245,6 +254,7 @@ nav {
 }
 
 .mobile-nav-button-open-hamburger-menu {
+  color: var(--color-text);
   margin-right: 1rem;
 }
 
@@ -275,7 +285,6 @@ svg:hover .svg-visible {
 }
 
 .project-gallery {
-  transition: all 1s;
   display: grid;
   grid-template-columns: 49% 49%;
   column-gap: 2%;
@@ -307,8 +316,14 @@ svg:hover .svg-visible {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 }
+
+/* .project-card-outline {
+  border-radius: 1.1rem;
+  padding: 0.1rem;
+  background: var(--linear-grad-theme-1);
+} */
 
 .project-card:hover {
   background-size: 100% 100%;
@@ -351,12 +366,12 @@ svg:hover .svg-visible {
 }
 
 .fade-enter-active {
-  transition: all calc(var(--base-transition-speed) * 2) ease;
+  transition: opacity calc(var(--base-transition-speed) * 2) ease;
   transition-delay: calc(var(--base-transition-speed) * 2);
 }
 
 .fade-leave-active {
-  transition: all calc(var(--base-transition-speed) * 2) ease;
+  transition: opacity calc(var(--base-transition-speed) * 2) ease;
 }
 
 .slide-enter-from {
@@ -447,7 +462,7 @@ svg:hover .svg-visible {
   }
 
   .external-profile-link:first-of-type {
-    margin-left: 2.5rem;
+    margin-left: 2rem;
   }
 
   .mobile-only {
@@ -473,7 +488,7 @@ svg:hover .svg-visible {
   }
 
   .external-profile-link:first-of-type {
-    margin-left: 2.5rem;
+    margin-left: 2rem;
   }
 
   .mobile-only {
