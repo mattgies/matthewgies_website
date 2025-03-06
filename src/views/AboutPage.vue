@@ -15,7 +15,7 @@
       src="@/assets/img/mg_headshot.jpg"
     />
     <div class="about-body">
-      <h1>Hey, I'm Matt!</h1>
+      <h1 style="letter-spacing: 0.05rem">Hey, I'm Matt!</h1>
       <h2>I'm deeply curious about how the world works.</h2>
       <p>
         I get bored sitting in one discipline. The intersection of art, technology, and science is

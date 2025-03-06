@@ -14,12 +14,11 @@ const router = createRouter({
     // },
     {
       path: '/',
-      name: 'about-duped-on-home',
-      component: AboutPage
+      redirect: '/about'
     },
     {
       path: '/projects',
-      name: 'projects',
+      name: 'Matthew Gies - Projects',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -28,7 +27,7 @@ const router = createRouter({
     },
     {
       path: '/photography',
-      name: 'photography',
+      name: 'Matthew Gies - Photography',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -36,7 +35,7 @@ const router = createRouter({
     },
     {
       path: '/about',
-      name: 'about',
+      name: 'Matthew Gies - About',
       component: AboutPage
     }
   ]

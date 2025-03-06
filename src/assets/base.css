@@ -12,8 +12,8 @@ html {
   --color-border: #b85042;
 
   --color-text-soft: #525252;
-  --color-text: #cb7a40;
-  --color-text-bright: #dfa35f;
+  --color-text: #c85b0d;
+  --color-text-bright: #dd9441;
 
   /* --color-text: #8ab876; */
   --color-text-accent: #b85042;
@@ -25,13 +25,13 @@ html {
 
 .dark-theme {
   --color-bg-soft: #727579;
-  --color-bg-medium: #0d1318;
+  --color-bg-medium: #121921;
   --color-bg-deep: #0b0b11;
   --color-border: #383d3c;
 
-  --color-text-soft: #c5c1c1;
+  --color-text-soft: #c2bdbd;
   --color-text: #84c4d2;
-  --color-text-bright: #e8ddb5;
+  --color-text-bright: #b5e8cf;
 
   --color-text-accent: #c8e0e0;
   --color-text-basic: #ffffff;

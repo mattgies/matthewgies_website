@@ -14,7 +14,7 @@ const isSelected: Ref<boolean> = ref(true);
     @click="isSelected = !isSelected"
     :style="
       isSelected
-        ? 'background: var(--linear-grad-theme-2); color: var(--color-bg-deep)'
+        ? 'background: var(--linear-grad-theme-2); color: var(--color-bg-deep); border-color: var(--color-bg-medium);'
         : 'background: var(--color-bg-deep); color: var(--color-text-accent)'
     "
     style="
@@ -23,6 +23,7 @@ const isSelected: Ref<boolean> = ref(true);
       align-items: center;
       justify-content: space-between;
       transition: all 0.5s;
+      font-size: 1.5rem;
     "
   >
     {{ filterName }}

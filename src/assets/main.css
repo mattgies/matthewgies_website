@@ -23,9 +23,7 @@ body {
 }
 
 button {
-  /* background-color: var(--color-background-soft); */
   background-color: var(--color-bg-deep);
-  /* border: 0.1rem solid var(--color-text); */
   border: 0.1rem solid var(--color-border);
   height: 4rem;
   border-radius: 2rem;
@@ -232,6 +230,10 @@ nav {
   visibility: hidden;
 }
 
+.invisible-by-opacity {
+  opacity: 0;
+}
+
 .scroll-to-top-button {
   position: fixed;
   right: 2rem;
@@ -240,6 +242,7 @@ nav {
   height: 8rem;
   width: 8rem;
   border-radius: 50%;
+  transition: opacity 0.5s;
 }
 
 .mobile-nav-elem {
@@ -334,7 +337,7 @@ svg:hover .svg-visible {
   object-fit: cover;
   max-width: 100%;
   border-radius: 0.5rem;
-  /* border: 0.1rem solid black; */
+  /* border: 0.1rem solid var(--color-text-basic); */
   box-sizing: border-box;
   margin-bottom: 0.5rem;
   aspect-ratio: 1.8;
