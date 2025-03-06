@@ -116,7 +116,6 @@ function shouldIncludeProj(proj: Project) {
 }
 
 function updateVisibleProjects(projectTypeToToggle: ProjectType) {
-  console.log('updating visible projects');
   const projectTypeIndex: number = visibleProjectTypes.value.indexOf(projectTypeToToggle);
   if (projectTypeIndex !== -1) {
     // projectTypeToToggle is in the visibleProjectTypes array

@@ -16,6 +16,12 @@ defineProps<{ pages: string[]; activePage: string }>();
       >
         {{ page.charAt(0).toUpperCase() + page.slice(1) }}
       </RouterLink>
+      <a
+        :class="['mobile-nav-elem', activePage == page ? 'nav-elem-active' : '']"
+        target="_blank"
+        href="/MatthewGies_Resume_March2025.pdf"
+        >Resume</a
+      >
     </div>
     <ExternalProfileLinks />
   </nav>

@@ -4,7 +4,7 @@ import { onMounted, onUnmounted, useTemplateRef } from 'vue';
 let scrollToTopButton = useTemplateRef('scrollToTopButton');
 
 const handleScroll = () => {
-  if (window.scrollY > 800) {
+  if (window.scrollY > 600) {
     scrollToTopButton.value!.classList.remove('invisible-by-opacity');
   } else {
     scrollToTopButton.value!.classList.add('invisible-by-opacity');

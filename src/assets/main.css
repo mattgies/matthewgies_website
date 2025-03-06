@@ -85,6 +85,7 @@ a {
 
 p {
   color: var(--color-text-basic);
+  font-size: 2rem;
 }
 
 h2 {
@@ -243,7 +244,7 @@ nav {
   height: 8rem;
   width: 8rem;
   border-radius: 50%;
-  transition: opacity 0.5s;
+  transition: opacity 0.2s;
 }
 
 .mobile-nav-elem {

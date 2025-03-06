@@ -100,6 +100,12 @@ const changeTheme = () => {
       >
         {{ page == 'home' ? '' : page.charAt(0).toUpperCase() + page.slice(1) }}
       </RouterLink>
+      <a
+        :class="['nav-elem', activePage == page ? 'nav-elem-active' : '']"
+        target="_blank"
+        href="/MatthewGies_Resume_March2025.pdf"
+        >Resume</a
+      >
       <div id="dark-mode-switch-container">
         <div id="dark-mode-switch" @click="changeTheme()">
           <div id="dark-mode-input"></div>
