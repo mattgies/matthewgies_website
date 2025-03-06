@@ -37,7 +37,6 @@ onMounted(() => {
 const changeTheme = () => {
   const darkModeSwitch = document.getElementById('dark-mode-switch')!;
   const darkModeInput = document.getElementById('dark-mode-input')!;
-  console.log(darkModeInput);
   const currentClasses = document.querySelector(':root')?.classList!;
   if (currentClasses.contains('dark-theme')) {
     darkModeInput.style.transform = '';
