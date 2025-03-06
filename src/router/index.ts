@@ -3,6 +3,7 @@ import AboutPage from '../views/AboutPage.vue';
 import HomeView from '../views/HomeView.vue';
 import ProjectsPage from '../views/ProjectsPage.vue';
 import PhotographyPage from '@/views/PhotographyPage.vue';
+import ArtPage from '@/views/ArtPage.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,14 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: PhotographyPage
+    },
+    {
+      path: '/art',
+      name: 'Matthew Gies - Art',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: ArtPage
     },
     {
       path: '/about',

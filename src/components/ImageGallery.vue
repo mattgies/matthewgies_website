@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import VLazyImage from 'v-lazy-image';
 
+const props = defineProps<{
+  images: string[];
+}>();
+
 interface Image {
   key: string;
   href: string;
@@ -16,13 +20,7 @@ import type { Ref } from 'vue';
 let rowWidth = ref(1200);
 let scaledImages: Ref<Image[]> = ref([]);
 
-const gallery: string[] = Object.values(
-  import.meta.glob('../assets/img/photography/*', {
-    eager: true,
-    query: '?url',
-    import: 'default'
-  })
-);
+const gallery: string[] = props.images;
 
 const fullSizeImages: string[] = [];
 const thumbnailImages: string[] = [];

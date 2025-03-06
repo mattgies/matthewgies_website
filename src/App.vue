@@ -4,8 +4,7 @@ import ScrollToTopButton from './components/ScrollToTopButton.vue';
 import NavHeaderAndButtons from './components/NavHeaderAndButtons.vue';
 import SvgLinearGradients from './components/SvgLinearGradients.vue';
 
-// const pages: string[] = ['home', 'projects', 'photography', 'about'];
-const pages: string[] = ['projects', 'photography', 'about'];
+const pages: string[] = ['projects', 'photography', 'art', 'about'];
 
 const nums: Number[] = [];
 for (let i = 0; i < 5; i++) {
