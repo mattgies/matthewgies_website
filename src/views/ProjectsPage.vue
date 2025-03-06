@@ -24,7 +24,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Wet Wet',
+    title: 'Wet Wet (click to demo!)',
     titleGradient: 'theme-1',
     subtitle: 'Realtime WebGL water shader',
     coverImgSrc: 'img/project_thumbnails/wet_wet.jpg',
@@ -34,7 +34,7 @@ const projects: Project[] = [
   {
     title: '404: Producer Not Found',
     titleGradient: 'theme-1',
-    subtitle: 'Mystery Game made in UE5',
+    subtitle: 'Murder mystery game made in UE5',
     coverImgSrc: 'img/project_thumbnails/404_prod_not_found.jpg',
     types: [ProjectType.DESIGN, ProjectType.GAME],
     projectLink: 'https://saffrona.itch.io/404-producer-not-found'
@@ -42,7 +42,7 @@ const projects: Project[] = [
   {
     title: 'Root of All Evil',
     titleGradient: 'theme-1',
-    subtitle: 'another one',
+    subtitle: 'Global Game Jam 2023 Arcade Gama',
     coverImgSrc: 'img/project_thumbnails/root_of_all_evil.jpg',
     types: [ProjectType.GAME],
     projectLink: 'https://hsdrummond.itch.io/root-of-all-evil'
@@ -50,7 +50,7 @@ const projects: Project[] = [
   {
     title: 'Dreaded Dark',
     titleGradient: 'theme-1',
-    subtitle: 'first one',
+    subtitle: 'Platformer with unique light switch mechanic',
     coverImgSrc: 'img/project_thumbnails/dreaded_dark.jpg',
     types: [ProjectType.GAME],
     projectLink: 'https://artoramen.itch.io/dreaded-dark'
@@ -58,7 +58,7 @@ const projects: Project[] = [
   {
     title: 'Journal Jams',
     titleGradient: 'theme-1',
-    subtitle: 'A music recommendation application',
+    subtitle: 'Music recommendation application linked with Spotify',
     coverImgSrc: 'img/project_thumbnails/journal_jams.jpg',
     types: [ProjectType.PROGRAMMING],
     projectLink: 'https://github.com/AlexGrams/journal-jams'
@@ -66,7 +66,7 @@ const projects: Project[] = [
   {
     title: 'Minecraft Parkour AI',
     titleGradient: 'theme-1',
-    subtitle: 'he jump',
+    subtitle: 'Reinforcement learning to run, jump, dash',
     coverImgSrc: 'img/project_thumbnails/mc_parkour_ai.jpg',
     types: [ProjectType.PROGRAMMING],
     projectLink: 'https://github.com/mattgies/mc-parkour-ai'
@@ -74,7 +74,7 @@ const projects: Project[] = [
   {
     title: 'Clownage: Rise of the Clownival',
     titleGradient: 'theme-1',
-    subtitle: 'another one',
+    subtitle: '3D Arcade Shooter with 2D animated sprites',
     coverImgSrc: 'img/project_thumbnails/clownage.jpg',
     types: [ProjectType.GAME],
     projectLink: 'https://mattgies.itch.io/clownage'
@@ -82,7 +82,7 @@ const projects: Project[] = [
   {
     title: 'Hi5',
     titleGradient: 'theme-1',
-    subtitle: 'DubHacks 2021 Submission',
+    subtitle: 'App for reconnecting post-COVID. DubHacks 2021',
     coverImgSrc: 'img/project_thumbnails/hi5.jpg',
     types: [ProjectType.DESIGN, ProjectType.PROGRAMMING],
     projectLink: 'https://www.figma.com/design/uFyeONSyabDq4XwUAezlRP' // 'https://github.com/maaarvin-was-here/hi5'
@@ -90,7 +90,7 @@ const projects: Project[] = [
   {
     title: 'Voxel',
     titleGradient: 'theme-1',
-    subtitle: 'Design@UCI 2021 Project Team',
+    subtitle: 'AR shopping application. Design@UCI 2021 Project',
     coverImgSrc: 'img/project_thumbnails/voxel.jpg',
     types: [ProjectType.DESIGN],
     projectLink: 'https://www.figma.com/file/mcIoC33ocwb8NzrnBltc7u/high-fidelity'

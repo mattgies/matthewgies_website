@@ -32,8 +32,8 @@
 
 <style scoped>
 .about-body {
-  margin-left: 5rem;
-  margin-right: 5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
   max-width: 100rem;
 }
 </style>

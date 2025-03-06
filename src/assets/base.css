@@ -17,7 +17,7 @@ html {
 
   /* --color-text: #8ab876; */
   --color-text-accent: #b85042;
-  --color-text-basic: #242424;
+  --color-text-basic: #101010;
 
   --linear-grad-theme-1: linear-gradient(90deg, #e9642f, #f18c08);
   --linear-grad-theme-2: linear-gradient(90deg, #da5c2a, #c54408);
@@ -34,7 +34,7 @@ html {
   --color-text-bright: #b5e8cf;
 
   --color-text-accent: #c8e0e0;
-  --color-text-basic: #ffffff;
+  --color-text-basic: #f0f0f0;
 
   --linear-grad-theme-1: linear-gradient(90deg, #42abdf, #54cbb5);
   --linear-grad-theme-2: linear-gradient(90deg, #1ab5ba, #2ba1bb);

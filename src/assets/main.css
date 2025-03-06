@@ -10,7 +10,7 @@
   font-family: 'Rowdies';
   margin: 0;
   padding: 0;
-  color: var(--color-text-basic);
+  /* color: var(--color-text-basic); */
 }
 
 body {
@@ -84,12 +84,13 @@ a {
 }
 
 p {
-  color: var(--color-text-soft);
+  color: var(--color-text-basic);
 }
 
 h2 {
   margin-top: 3rem;
   margin-bottom: 1.5rem;
+  color: var(--color-text);
 }
 
 @keyframes logo-bounce {
@@ -348,14 +349,17 @@ svg:hover .svg-visible {
   background-image: linear-gradient(90deg, #4575c9, #55b0d4);
   background-clip: text;
   color: transparent;
-}
-
-.project-card-subtitle {
-  font-size: 1.75rem;
+  display: block;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  display: inherit;
+}
+
+.project-card-subtitle {
+  font-size: 1.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .fade-enter-from,
